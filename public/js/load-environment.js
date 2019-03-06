@@ -5,7 +5,6 @@ AFRAME.registerComponent('load-environment', {
     init :function(){
         const Context_AF = this;
         Context_AF.createKitchen();
-
         
     },
     createKitchen : function(){
@@ -18,5 +17,6 @@ AFRAME.registerComponent('load-environment', {
         
         const scene = document.querySelector('a-scene');
         //scene.appendChild(monumentElem);                         //append cow to parent(scene)
+
     }
 });
