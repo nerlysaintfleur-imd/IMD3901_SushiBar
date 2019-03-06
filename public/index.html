@@ -4,7 +4,8 @@
 		<title>Sushi バー</title>
 		<script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
 		<script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
-        <script src="/js/load-environment.js"></script>
+                <script src="/js/load-environment.js"></script>
+                <script src="/js/controller-management.js"></script>
 	</head>
         <body>
             <h1>Welcome to the Sushi バー(Bar) Environment Test Scene</h1>
@@ -16,9 +17,6 @@
                         <!--LOADING ASSETS ITEM-->
                         <a-asset-item id="kitchenEnviro-obj" src="/assets/models/Environment_v02.obj"></a-asset-item>
                         <a-asset-item id="kitchenEnviro-mtl" src="/assets/textures/Environment_v02.mtl"></a-asset-item>
-                        
-                        <a-asset-item id="controller-obj" src="/assets/models/vr_controller_vive.obj"></a-asset-item>
-			<a-asset-item id="controller-mtl" src="/assets/textures/vr_controller_vive.mtl"></a-asset-item>
 		</a-assets>
                 <!--CAMERA CONTROLS-->
                 <a-entity position="0 15 -1"  camera look-controls wasd-controls>
@@ -44,9 +42,9 @@
                 event-set="_event: grabend; visible: true"  
                 ></a-entity>
               -->
-                <a-entity vive-controls="hand: left" src="#controller-obj" mtl="#controller-mtl"></a-entity>
-                <a-entity vive-controls="hand: right" src="#controller-obj" mtl="#controller-mtl"></a-entity>
->
+              <a-entity id="leftHand" hand-controls="left" src="/assets/models/leftHand.json"></a-entity>
+              <a-entity id="rightHand" hand-controls="right" src="/assets/models/rightHand.json"></a-entity>
+
                 <!--LIGHTING-->
                 <a-entity light="type:directional; castShadow:true; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
