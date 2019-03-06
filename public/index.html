@@ -15,42 +15,25 @@
                         <img id="skymap" src="/assets/textures/sunset.jpg">
                         <!--<img id="kitchenEnviro-map" src="/assets/textures/Environment_v02.mtl">-->
                         <!--LOADING ASSETS ITEM-->
-                        <a-asset-item id="kitchenEnviro-obj" src="/assets/models/Environment_v02.obj"></a-asset-item>
-                        <a-asset-item id="kitchenEnviro-mtl" src="/assets/textures/Environment_v02.mtl"></a-asset-item>
+                        <a-asset-item id="kitchenEnviro-obj" src="/assets/models/Environment v03.obj"></a-asset-item>
+                        <a-asset-item id="kitchenEnviro-mtl" src="/assets/textures/Environment v03.mtl"></a-asset-item>
 		</a-assets>
                 <!--CAMERA CONTROLS-->
-                <a-entity position="0 15 -1"  camera look-controls wasd-controls>
-                    <a-entity cursor="fuse:false, fuseTimeout:1000; rayOrigin:mouse"
-                            position="0 0 -1"
-                            geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03;"
-                            material="shader:flat; color:black">
-                    </a-entity>
+                <a-entity id="mainCamera" position="0 40 -1"  camera look-controls wasd-controls="acceleration: 2000">
+                    
                 </a-entity>
 
                 <!--HAND CONTROLS-->
 
-              <!--  <a-entity
-                tracked-controls  
-                vive-controls 
-                oculus-touch-controls 
-                hand-controls 
-                laser-controls 
-                sphere-collider  
-                grab  
-                throw 
-                event-set="_event: grabstart; visible: false"  
-                event-set="_event: grabend; visible: true"  
-                ></a-entity>
-              -->
-              <a-entity id="leftHand" hand-controls="left" src="/assets/models/leftHand.json"></a-entity>
-              <a-entity id="rightHand" hand-controls="right" src="/assets/models/rightHand.json"></a-entity>
+              <a-entity id="leftHand" hand-controls="left"></a-entity>
+              <a-entity id="rightHand" hand-controls="right"></a-entity>
 
                 <!--LIGHTING-->
                 <a-entity light="type:directional; castShadow:true; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
                 
                 <!--CREATE-->
-                <a-obj-model load-environment src="#kitchenEnviro-obj" mtl="#kitchenEnviro-mtl" position="0 0 0" rotation="0 0 0" scale="0.099 0.099 0.090" shadow="cast:true; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
+                <a-obj-model load-environment src="#kitchenEnviro-obj" mtl="#kitchenEnviro-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:true; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
 
                 <a-entity id="sky"
                     geometry="primitive:sphere; radius:500;"
