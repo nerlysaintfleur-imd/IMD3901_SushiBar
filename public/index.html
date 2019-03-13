@@ -13,10 +13,9 @@
             <a-scene shadow="type:basic;">
                     <a-assets timeout="5000">
                         <img id="skymap" src="/assets/textures/sunset.jpg">
-                        <!--<img id="kitchenEnviro-map" src="/assets/textures/Environment_v02.mtl">-->
                         <!--LOADING ASSETS ITEM-->
-                        <a-asset-item id="kitchenEnviro-obj" src="/assets/models/Environment v03.obj"></a-asset-item>
-                        <a-asset-item id="kitchenEnviro-mtl" src="/assets/textures/Environment v03.mtl"></a-asset-item>
+                        <a-asset-item id="kitchenEnviro-obj" src="/assets/models/environment_v05.obj"></a-asset-item>
+                        <a-asset-item id="kitchenEnviro-mtl" src="/assets/textures/environment_v05.mtl"></a-asset-item>
 		</a-assets>
                 <!--CAMERA CONTROLS-->
                 <a-entity id="mainCamera" position="0 40 -1"  camera look-controls wasd-controls="acceleration: 2000">
@@ -45,26 +44,3 @@
 	</head>
 </html>
 
-<!--
-	For simple object load, .js not required
-	<!DOCTYPE html>
-<html>
-    <head>
-        <title>Sushi バー</title>
-        <script src="js/aframe.min.js"></script>
-    </head>
-
-        <body>
-            <a-scene>
-                <a-asset>
-                    <a-asset-item id="kitchenOBJ" src="/assets/models/Environment_v02.obj"></a-asset-item>
-                    <a-asset-item id="kitchenMTL" src="/assets/textures/Environment_v02.mtl"></a-asset-item>
-                </a-asset>
-
-                <a-obj-model src="#kitchenOBJ" mtl="#kitchenMTL"></a-obj-model>
-            </a-scene>
-        </body>
-    </head>
-</html>
-
--->
