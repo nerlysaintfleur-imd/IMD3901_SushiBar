@@ -16,10 +16,18 @@
                         <!--LOADING ASSETS ITEM-->
                         <a-asset-item id="kitchenEnviro-obj" src="/assets/models/environment_v05.obj"></a-asset-item>
                         <a-asset-item id="kitchenEnviro-mtl" src="/assets/textures/environment_v05.mtl"></a-asset-item>
+
                         <a-asset-item id="avocado-obj" src="/assets/models/avacado.obj"></a-asset-item>
                         <a-asset-item id="avocado-mtl" src="/assets/textures/avacado.mtl"></a-asset-item>
+
                         <a-asset-item id="salmon-obj" src="/assets/models/salmon.obj"></a-asset-item>
-                        <img id="salmon-mtl" src="/assets/textures/salmon.png"></img>
+                        <img id="salmon-mtl" src="/assets/textures/salmon.png">
+
+                        <a-asset-item id="salt-obj" src="/assets/models/exports/export/salt/salt.obj"></a-asset-item>
+                        <a-asset-item id="salt-mtl" src="/assets/models/exports/export/salt/salt.mtl"></a-asset-item>
+
+                    
+
 		</a-assets>
                 <!--CAMERA CONTROLS-->
                 <a-entity id="mainCamera" position="0 40 -1"  camera look-controls wasd-controls="acceleration: 2000">
@@ -36,14 +44,15 @@
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
                 
                 <!--CREATE-->
-                <a-obj-model load-environment src="#kitchenEnviro-obj" mtl="#kitchenEnviro-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
+                <a-obj-model load-environment src="#kitchenEnviro-obj" mtl="#kitchenEnviro-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>   
                 <a-obj-model load-environment src="#avocado-obj" mtl="#avocado-mtl" position="0 0 -20" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
                 <a-obj-model load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 -5" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
+                <a-obj-model load-environment src="#salt-obj" mtl="#salt-mtl" position="57 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
 
                 <a-entity id="sky"
                     geometry="primitive:sphere; radius:500;"
-                    material="shader:flat; src:#skymap;  aside:back; height:2048; width:2048"
-            ></a-entity>
+                    material="shader:flat; src:#skymap;  aside:back; height:2048; width:2048">
+                </a-entity>
             </a-scene>
 
 		</body>
