@@ -4,13 +4,6 @@ Kd 0.50 0.50 0.50
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 Ni 1.00
-newmtl knife_lambert2SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd knife.png
-Ni 1.00
 newmtl lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
@@ -43,4 +36,17 @@ Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd avocado.png
+Ni 1.00
+newmtl measuring_cup_lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd measuringcup.png
+Ni 1.00
+newmtl measuring_cup_lambert3SG
+illum 4
+Kd 0.00 0.04 0.44
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
 Ni 1.00
