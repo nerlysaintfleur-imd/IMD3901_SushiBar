@@ -7,9 +7,8 @@ AFRAME.registerComponent('load-environment', {
         Context_AF.createKitchen();
         Context_AF.createAvocado();
         Context_AF.createSalmon();
+        Context_AF.createSalt();
 
-
-        
     },
     createKitchen : function(){
         const Context_AF = this;
@@ -32,10 +31,20 @@ AFRAME.registerComponent('load-environment', {
     createSalmon : function(){
         const Context_AF = this;
 
-        let salmonElem  = document.createElement('a-obj-model');//create new element avocado in memory
+        let salmonElem  = document.createElement('a-entity');//create new element salmon in memory
         salmonElem.setAttribute('obj-model',{obj:'/assets/models/salmon.obj'});
         salmonElem.setAttribute('position',{x:0, y:0, z:0});
         salmonElem.setAttribute('material',{src:'/assets/textures/salmon.png'});
+        
+    },
+    createSalt : function(){
+        const Context_AF = this;
+
+        let saltElem  = document.createElement('a-obj-model');//create new element salt in memory
+        saltElem.setAttribute('obj-model',{obj:'/assets/models/exports/export/salt/salt.obj'});
+        saltElem.setAttribute('position',{x:0, y:0, z:0});
+        saltElem.setAttribute('material',{src:'/assets/models/exports/export/salt/salt.mtl'});
+
         
     }
 });
