@@ -7,7 +7,12 @@
     <!-- <script src="https://rawgit.com/takahirox/aframe-outline/master/build/aframe-outline.min.js"></script> ADDING OUTLINE SHADER -->
 		<script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
     <script src="/js/load-environment.js"></script>
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-click-drag-component"></script>
     <script src="/js/controller-management.js"></script>
+    <script>
+      registerAframeClickDragComponent(window.AFRAME);
+    </script>
 	</head>
         <body>
             <h1>Welcome to the Sushi バー(Bar) Environment Test Scene</h1>
@@ -115,8 +120,8 @@
                 <!--CREATE-->
                 <a-obj-model load-environment src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 
-                <a-obj-model load-environment src="#avocado-obj" material="src:#avocado-mtl" position="57 22.5 25" rotation="0 225 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model click-drag load-environment src="#avocado-obj" material="src:#avocado-mtl" position="57 22.5 25" rotation="0 225 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model click-drag load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#salt-obj" mtl="#salt-mtl" position="69 20 29" rotation="0 -90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#bamboomat-obj" material="src:#bamboomat-mtl" position="54 22.8 -1" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#bambooskewersbunch-obj" mtl="#bambooskewersbunch-mtl" position="67 22.7 -12" rotation="0 -90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
