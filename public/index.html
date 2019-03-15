@@ -17,9 +17,9 @@
                     <a-assets timeout="5000">
                         <img id="skymap" src="/assets/textures/sunset.jpg"></img>
                         <!--LOADING ASSETS ITEM-->
-                        <a-asset-item id="kitchenEnviro-obj" src="/assets/models/environment/building_final.obj"></a-asset-item>
+                        <a-asset-item id="kitchenEnviro-obj" src="/assets/models/environment/building_final2.obj"></a-asset-item>
                         <a-asset-item id="kitchenEnviro-mtl" src="/assets/models/environment/building_final.mtl"></a-asset-item>
-												<img id="kitchenEnviroFloor-mtl" src="/assets/models/environment/floor_v02.png"></img>
+												<img id="kitchenEnviroFloor-mtl" src="/assets/models/environment/building_uv.png"></img>
 
 												<!--NPC-->
                           <!--NPC1-->
@@ -80,21 +80,21 @@
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
                 
                 <!--CREATE-->
-                <a-obj-model load-environment src="#kitchenEnviro-obj" mtl="#kitchenEnviro-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#avocado-obj" material="src:#avocado-mtl" position="0 0 -20" rotation="0 0 0" scale="0 0 0" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 -5" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#salt-obj" mtl="#salt-mtl" position="57 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#bamboomat-obj" material="src:#bamboomat-mtl" position="58 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#bambooskewersbunch-obj" mtl="#bambooskewersbunch-mtl" position="59 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#bambooskewer-obj" mtl="#bambooskewer-mtl" position="60 23.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#condensedmilkBowl-obj" material="src:#condensedmilkBowl-mtl" position="61 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#condensedmilkCan-obj" material="src:#condensedmilkCan-mtl" position="62 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#cucumberFull-obj" material="src:#cucumberFull-mtl" position="63 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-								<a-obj-model load-environment src="#cucumberHalf-obj" material="src:#cucumberHalf-mtl" position="64 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#cucumberSliced-obj" material="src:#cucumberSliced-mtl" position="65 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#knife-obj" material="src:#knife-mtl" position="66 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#measuringcup-obj" material="src:#measuringcup-mtl" position="66 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#rice-obj" material="src:#rice-mtl" position="67 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#bamboomat-obj" material="src:#bamboomat-mtl" position="58 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#bambooskewersbunch-obj" mtl="#bambooskewersbunch-mtl" position="59 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#bambooskewer-obj" mtl="#bambooskewer-mtl" position="60 23.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#condensedmilkBowl-obj" material="src:#condensedmilkBowl-mtl" position="61 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#condensedmilkCan-obj" material="src:#condensedmilkCan-mtl" position="62 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#cucumberFull-obj" material="src:#cucumberFull-mtl" position="63 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+								<a-obj-model load-environment src="#cucumberHalf-obj" material="src:#cucumberHalf-mtl" position="64 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#cucumberSliced-obj" material="src:#cucumberSliced-mtl" position="65 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#knife-obj" material="src:#knife-mtl" position="66 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#measuringcup-obj" material="src:#measuringcup-mtl" position="66 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#rice-obj" material="src:#rice-mtl" position="67 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
 
 
                 <a-entity id="sky"
