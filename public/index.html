@@ -11,8 +11,9 @@
 	</head>
         <body>
             <h1>Welcome to the Sushi バー(Bar) Environment Test Scene</h1>
-            <a-scene outline>
-                         <!--  <a-scene shadow="type:basic;">  <a-scene outline> ADDING OUTLINE SHADER -->
+            <!--<a-scene outline>-->
+
+            <a-scene shadow="type:basic;">
                     <a-assets timeout="5000">
                         <img id="skymap" src="/assets/textures/sunset.jpg"></img>
                         <!--LOADING ASSETS ITEM-->
@@ -87,7 +88,7 @@
                 <a-obj-model load-environment src="#condensedmilkBowl-obj" material="src:#condensedmilkBowl-mtl" position="61 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#condensedmilkCan-obj" material="src:#condensedmilkCan-mtl" position="62 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#cucumberFull-obj" material="src:#cucumberFull-mtl" position="63 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-								<a-obj-model load-environment src="#cucumberHalf-obj" material="src:#cucumberHalf-mtl" position="64 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>                 <a-obj-model load-environment src="#cucumberHalf-obj" mtl="#cucumberHalf-mtl" position="64 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+								<a-obj-model load-environment src="#cucumberHalf-obj" material="src:#cucumberHalf-mtl" position="64 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#cucumberSliced-obj" material="src:#cucumberSliced-mtl" position="65 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#knife-obj" material="src:#knife-mtl" position="66 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#measuringcup-obj" material="src:#measuringcup-mtl" position="66 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
@@ -99,7 +100,6 @@
                     material="shader:flat; src:#skymap;  aside:back; height:2048; width:2048">
                 </a-entity>
             </a-scene>
-
 		</body>
 	</head>
 </html>
