@@ -2,36 +2,70 @@
 <html>
 	<head>
 		<title>Sushi バー</title>
-		<script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
+    <script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
+    <!-- <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>  ADDING OUTLINE SHADER -->
+    <!-- <script src="https://rawgit.com/takahirox/aframe-outline/master/build/aframe-outline.min.js"></script> ADDING OUTLINE SHADER -->
 		<script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
                 <script src="/js/load-environment.js"></script>
                 <script src="/js/controller-management.js"></script>
 	</head>
         <body>
             <h1>Welcome to the Sushi バー(Bar) Environment Test Scene</h1>
-
-            <a-scene shadow="type:basic;">
-                    <a-assets timeout="2000">
+            <a-scene outline>
+                         <!--  <a-scene shadow="type:basic;">  <a-scene outline> ADDING OUTLINE SHADER -->
+                    <a-assets timeout="5000">
                         <img id="skymap" src="/assets/textures/sunset.jpg">
                         <!--LOADING ASSETS ITEM-->
-                        <a-asset-item id="kitchenEnviro-obj" src="/assets/models/environment_v05.obj"></a-asset-item>
-                        <a-asset-item id="kitchenEnviro-mtl" src="/assets/textures/environment_v05.mtl"></a-asset-item>
-
-                        <a-asset-item id="avocado-obj" src="/assets/models/avacado.obj"></a-asset-item>
-                        <a-asset-item id="avocado-mtl" src="/assets/textures/avacado.mtl"></a-asset-item>
-
-                        <a-asset-item id="salmon-obj" src="/assets/models/salmon.obj"></a-asset-item>
-                        <img id="salmon-mtl" src="/assets/textures/salmon.png">
-
-                        <a-asset-item id="salt-obj" src="/assets/models/exports/export/salt/salt.obj"></a-asset-item>
-                        <a-asset-item id="salt-mtl" src="/assets/models/exports/export/salt/salt.mtl"></a-asset-item>
-
+                        <a-asset-item id="kitchenEnviro-obj" src="/public/assets/models/environment_v05.obj"></a-asset-item>
+                        <a-asset-item id="kitchenEnviro-mtl" src="/public/assets/textures/environment_v05.mtl"></a-asset-item>
+                        <!--NPC-->
+                          <!--NPC1-->
+                        <a-asset-item id="avocado-obj" src="/public/assets/models/npc/Male1/male1.obj"></a-asset-item>
+                        <a-asset-item id="avocado-mtl" src="/public/assets/models/npc/Male1/final_texture.png"></a-asset-item>
+                        <!--avacado-->
+                        <a-asset-item id="avocado-obj" src="/public/assets/models/props/avacado/avacado.obj"></a-asset-item>
+                        <a-asset-item id="avocado-mtl" src="/public/assets/models/props/avacado/avocado.png"></a-asset-item>
+                        <!--salmon-->
+                        <a-asset-item id="salmon-obj" src="/public/assets/models/salmon.obj"></a-asset-item>
+                        <img id="salmon-mtl" src="/public/assets/textures/salmon.png">
+                        <!--salt-->
+                        <a-asset-item id="salt-obj" src="/public/assets/models/props/salt/salt.obj"></a-asset-item>
+                        <a-asset-item id="salt-mtl" src="/public/assets/models/props/salt/salt.mtl"></a-asset-item>
+                        <!--bamboo mat-->
+                        <a-asset-item id="bamboomat-obj" src="/public/assets/models/props/bamboo_mat/bamboomat.obj"></a-asset-item>
+                        <a-asset-item id="bamboomat-mtl" src="/public/assets/models/props/bamboo_mat/bamboo_mat.png"></a-asset-item>
+                        <!--bamboo skewers-->
+                        <a-asset-item id="bambooskewersbunch-obj" src="/public/assets/models/props/bamboo_skewers/bamboo_skewers(bunch).obj"></a-asset-item>
+                        <a-asset-item id="bambooskewersbunch-mtl" src="/public/assets/models/props/bamboo_skewers/bamboo_skewers(bunch).mtl"></a-asset-item>
+                        <a-asset-item id="bambooskewer-obj" src="/public/assets/models/props/bamboo_skewers/bamboo_skewers(one).obj"></a-asset-item>
+                        <a-asset-item id="bambooskewer-mtl" src="/public/assets/models/props/bamboo_skewers/bamboo_skewers(one).mtl"></a-asset-item>
+                        <!--condensed milk (bowl and can)-->
+                        <a-asset-item id="condensedmilkBowl-obj" src="/public/assets/models/props/condensed_milk/bowl/bowl.obj"></a-asset-item>
+                        <a-asset-item id="condensedmilkBowl-mtl" src="/public/assets/models/props/condensed_milk/bowl/bowl.png"></a-asset-item>
+                        <a-asset-item id="condensedmilkCan-obj" src="/public/assets/models/props/condensed_milk/can/can.obj"></a-asset-item>
+                        <a-asset-item id="condensedmilkCan-mtl" src="/public/assets/models/props/condensed_milk/can/can.png"></a-asset-item>
+                        <!--cucumber (full, half, sliced)-->
+                        <a-asset-item id="cucumberFull-obj" src="/public/assets/models/props/cucumber/cucumber_full/cucumber_full.obj"></a-asset-item>
+                        <a-asset-item id="cucumberFull-mtl" src="/public/assets/models/props/cucumber/cucumber_full/cucumber.png"></a-asset-item>
+                        <a-asset-item id="cucumberHalf-obj" src="/public/assets/models/props/cucumber/cucumber_half/cucumber_half.obj"></a-asset-item>
+                        <a-asset-item id="cucumberHalf-mtl" src="/public/assets/models/props/cucumber/cucumber_half/cucumbersliced.png"></a-asset-item>
+                        <a-asset-item id="cucumberSliced-obj" src="/public/assets/models/props/cucumber/cucumber_sliced/cucumber_sliced.obj"></a-asset-item>
+                        <a-asset-item id="cucumberSliced-mtl" src="/public/assets/models/props/cucumber/cucumber_sliced/cucumberslices.png"></a-asset-item>
+                        <!--knife-->
+                        <a-asset-item id="knife-obj" src="/public/assets/models/props/knife/knife.obj"></a-asset-item>
+                        <a-asset-item id="knife-mtl" src="/public/assets/models/props/knife/knife.png"></a-asset-item>
+                        <!--measuring cup-->
+                        <a-asset-item id="measuringcup-obj" src="/public/assets/models/props/measuring_cup/measuring_cup.obj"></a-asset-item>
+                        <a-asset-item id="measuringcup-mtl" src="/public/assets/models/props/measuring_cup/measuringcup.png"></a-asset-item>
+                        <!--rice-->
+                        <a-asset-item id="rice-obj" src="/public/assets/models/props/rice/rice.obj"></a-asset-item>
+                        <a-asset-item id="rice-mtl" src="/public/assets/models/props/rice/rice.png"></a-asset-item>
                     
 
 		</a-assets>
                 <!--CAMERA CONTROLS-->
                 <a-entity id="mainCamera" position="0 40 -1"  camera look-controls wasd-controls="acceleration: 2000">
-                    
+
                 </a-entity>
 
                 <!--HAND CONTROLS-->
@@ -44,10 +78,23 @@
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
                 
                 <!--CREATE-->
-                <a-obj-model load-environment src="#kitchenEnviro-obj" mtl="#kitchenEnviro-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>   
-                <a-obj-model load-environment src="#avocado-obj" mtl="#avocado-mtl" position="0 0 -20" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>   
-                <a-obj-model load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 -5" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>   
-                <a-obj-model load-environment src="#salt-obj" mtl="#salt-mtl" position="57 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>   
+                <a-obj-model load-environment src="#kitchenEnviro-obj" mtl="#kitchenEnviro-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#avocado-obj" mtl="#avocado-mtl" position="0 0 -20" rotation="0 0 0" scale="0 0 0" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 -5" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#salt-obj" mtl="#salt-mtl" position="57 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#bamboomat-obj" mtl="#bamboomat-mtl" position="58 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#bambooskewersbunch-obj" mtl="#bambooskewersbunch-mtl" position="59 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#bambooskewer-obj" mtl="#bambooskewer-mtl" position="60 23.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#condensedmilkBowl-obj" mtl="#condensedmilkBowl-mtl" position="61 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#condensedmilkCan-obj" mtl="#condensedmilkCan-mtl" position="62 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#cucumberFull-obj" mtl="#cucumberFull-mtl" position="63 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#cucumberHalf-obj" mtl="#cucumberHalf-mtl" position="64 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#cucumberSliced-obj" mtl="#cucumberSliced-mtl" position="65 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#knife-obj" mtl="#knife-mtl" position="66 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#measuringcup-obj" mtl="#measuringcup-mtl" position="66 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#rice-obj" mtl="#rice-mtl" position="67 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-environment src="#cucumberHalf-obj" mtl="#cucumberHalf-mtl" position="64 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>                 <a-obj-model load-environment src="#cucumberHalf-obj" mtl="#cucumberHalf-mtl" position="64 22.5 -10" rotation="0 0 0" scale="0 0 0 " shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+
 
                 <a-entity id="sky"
                     geometry="primitive:sphere; radius:500;"
