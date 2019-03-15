@@ -14,9 +14,9 @@ AFRAME.registerComponent('load-environment', {
         const Context_AF = this;
 
         let kitchenElem  = document.createElement('a-entity');//create new element kitchen in memory
-        kitchenElem.setAttribute('obj-model',{obj:'/assets/models/environment/building_final.obj'});
+        kitchenElem.setAttribute('obj-model',{obj:'/assets/models/environment/building_final2.obj'});
         kitchenElem.setAttribute('position',{x:0, y:1, z:0});
-        kitchenElem.setAttribute('material',{src:'/assets/models/environment/floor_v02.png'});
+        kitchenElem.setAttribute('material',{src:'/assets/models/environment/building_uv.png'});
 
     },
     createAvocado : function(){
