@@ -11,7 +11,7 @@
             <h1>Welcome to the Sushi バー(Bar) Environment Test Scene</h1>
 
             <a-scene shadow="type:basic;">
-                    <a-assets timeout="5000">
+                    <a-assets timeout="2000">
                         <img id="skymap" src="/assets/textures/sunset.jpg">
                         <!--LOADING ASSETS ITEM-->
                         <a-asset-item id="kitchenEnviro-obj" src="/assets/models/environment_v05.obj"></a-asset-item>
@@ -40,14 +40,14 @@
               <a-entity id="rightHand" hand-controls="right"></a-entity>
 
                 <!--LIGHTING-->
-                <a-entity light="type:directional; castShadow:true; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
+                <a-entity light="type:directional; castShadow:false; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
                 
                 <!--CREATE-->
                 <a-obj-model load-environment src="#kitchenEnviro-obj" mtl="#kitchenEnviro-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>   
-                <a-obj-model load-environment src="#avocado-obj" mtl="#avocado-mtl" position="0 0 -20" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
-                <a-obj-model load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 -5" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
-                <a-obj-model load-environment src="#salt-obj" mtl="#salt-mtl" position="57 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
+                <a-obj-model load-environment src="#avocado-obj" mtl="#avocado-mtl" position="0 0 -20" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>   
+                <a-obj-model load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 -5" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>   
+                <a-obj-model load-environment src="#salt-obj" mtl="#salt-mtl" position="57 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>   
 
                 <a-entity id="sky"
                     geometry="primitive:sphere; radius:500;"
