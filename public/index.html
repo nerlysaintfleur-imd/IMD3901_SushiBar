@@ -17,16 +17,22 @@
                         <a-asset-item id="kitchenEnviro-obj" src="/assets/models/environment_v05.obj"></a-asset-item>
                         <a-asset-item id="kitchenEnviro-mtl" src="/assets/textures/environment_v05.mtl"></a-asset-item>
                         <!--avacado-->
-                        <a-asset-item id="avocado-obj" src="/assets/models/avacado.obj"></a-asset-item>
-                        <a-asset-item id="avocado-mtl" src="/assets/textures/avacado.mtl"></a-asset-item>
+                        <a-asset-item id="avocado-obj" src="/assets/models/props/avacado/avacado.obj"></a-asset-item>
+                        <a-asset-item id="avocado-mtl" src="/assets/models/props/avacado/avacado.png"></a-asset-item>
                         <!--salmon-->
                         <a-asset-item id="salmon-obj" src="/assets/models/salmon.obj"></a-asset-item>
                         <img id="salmon-mtl" src="/assets/textures/salmon.png">
                         <!--salt-->
-                        <a-asset-item id="salt-obj" src="/assets/models/exports/export/salt/salt.obj"></a-asset-item>
-                        <a-asset-item id="salt-mtl" src="/assets/models/exports/export/salt/salt.mtl"></a-asset-item>
-                        <!--avacado-->
-
+                        <a-asset-item id="salt-obj" src="/assets/models/props/bamboo_mat/bamboomat.obj"></a-asset-item>
+                        <a-asset-item id="salt-mtl" src="/assets/models/props/bamboo_mat/bamboo_mat.png"></a-asset-item>
+                        <!--bamboo mat-->
+                        <a-asset-item id="bamboomat-obj" src="/assets/models/props/bamboo_mat/bamboomat.obj"></a-asset-item>
+                        <a-asset-item id="bamboomat-mtl" src="/assets/models/props/bamboo_mat/bamboo_mat.png"></a-asset-item>
+                        <!--bamboo skewwers-->
+                        <a-asset-item id="bambooskewersbunch-obj" src="/assets/models/props/bamboo_skewers/bamboo_skewers(bunch).obj"></a-asset-item>
+                        <a-asset-item id="bambooskewersbunch-mtl" src="/assets/models/props/bamboo_skewers/bamboo_skewers(bunch).mtl"></a-asset-item>
+                        <a-asset-item id="bambooskewer-obj" src="/assets/models/props/bamboo_skewers/bamboo_skewers(one).obj"></a-asset-item>
+                        <a-asset-item id="bambooskewer-mtl" src="/assets/models/props/bamboo_skewers/bamboo_skewers(one).mtl"></a-asset-item>
                     
 
 		</a-assets>
@@ -46,7 +52,7 @@
                 
                 <!--CREATE-->
                 <a-obj-model load-environment src="#kitchenEnviro-obj" mtl="#kitchenEnviro-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>   
-                <a-obj-model load-environment src="#avocado-obj" mtl="#avocado-mtl" position="0 0 -20" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
+                <a-obj-model load-environment src="#avocado-obj" mtl="#avocado-mtl" position="0 0 -20" rotation="0 0 0" scale="0 0 0" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
                 <a-obj-model load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 -5" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
                 <a-obj-model load-environment src="#salt-obj" mtl="#salt-mtl" position="57 22.5 -10" rotation="0 0 0" scale="0.2 0.2 0.2" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>   
 
