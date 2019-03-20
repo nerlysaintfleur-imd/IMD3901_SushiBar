@@ -2,17 +2,17 @@
 <html>
 	<head>
 		<title>Sushi バー</title>
-    <script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
+    <!-- <script src="/js/aframe.min.js"></script>  https://github.com/aframevr/aframe -->
     <!-- <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>  ADDING OUTLINE SHADER -->
     <!-- <script src="https://rawgit.com/takahirox/aframe-outline/master/build/aframe-outline.min.js"></script> ADDING OUTLINE SHADER -->
 		<script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
     <script src="/js/load-environment.js"></script>
-   
+		<script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-click-drag-component"></script>
     <script src="/js/controller-management.js"></script>
-   <script>
-      registerAframeClickDragComponent(window.AFRAME);
-    </script>
+		<script>
+	    registerAframeClickDragComponent(window.AFRAME);
+	  </script>
   </head>
         <body>
             <h1>Welcome to the Sushi バー(Bar) Environment Test Scene</h1>
@@ -25,7 +25,7 @@
 
                         <a-asset-item id="kitchenEnviro-obj" src="/assets/models/environment/building_final2.obj"></a-asset-item>
                         <img id="kitchenEnviroFloor-mtl" src="/assets/models/environment/building_uv.png"></img>
-                        
+
                         <a-asset-item id="chair-obj" src="/assets/models/environment/chair3.obj"></a-asset-item>
                         <a-asset-item id="chair2-obj" src="/assets/models/environment/chair2.obj"></a-asset-item>
                         <img id="chair-mtl" src="/assets/models/environment/Chair2_Base_Color.png"></img>
@@ -57,7 +57,7 @@
                         <a-asset-item id="trashCan-obj" src="/assets/models/environment/trashcan.obj"></a-asset-item>
                         <img id="trashCan-mtl" src="/assets/models/environment/Trash_Base_Color.png"></img>
 
-                        
+
 
 												<!--NPC-->
                           <!--NPC1-->
@@ -104,7 +104,7 @@
 
 		</a-assets>
                 <!--CAMERA CONTROLS-->
-                <a-entity id="mainCamera" position="0 40 -1"  camera look-controls wasd-controls="acceleration: 2000">
+                <a-entity id="mainCamera" position="0 40 -1"  camera look-controls-enabled="false" wasd-controls="acceleration: 2000">
 
                 </a-entity>
 
@@ -134,7 +134,7 @@
                 <a-obj-model load-environment src="#knife-obj" material="src:#knife-mtl" position="75 22.5 10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#measuringcup-obj" material="src:#measuringcup-mtl" position="68 22.9 0" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#rice-obj" material="src:#rice-mtl" position="52 22.5 -10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                
+
                 <a-obj-model load-environment src="#chair-obj" material="src:#chair-mtl" position="0 0 0 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#chair2-obj" material="src:#chair-mtl" position="0 0 0 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#chair-obj" material="src:#chair-mtl" position="0 0 70 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
