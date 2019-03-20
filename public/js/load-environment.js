@@ -9,6 +9,7 @@ AFRAME.registerComponent('load-environment', {
         Context_AF.createSalmon();
         Context_AF.createSalt();
 
+
     },
     createKitchen : function(){
         const Context_AF = this;
@@ -26,6 +27,8 @@ AFRAME.registerComponent('load-environment', {
         avocadoElem.setAttribute('obj-model',{obj:'/assets/models/props/avacado/avacado.obj'});
         avocadoElem.setAttribute('position',{x:0, y:0, z:0});
         avocadoElem.setAttribute('material',{src:'/assets/models/props/avacado/avocado.png'});
+        avocadoElem.setAttribute('delete-obj',{});
+
 
     },
     createSalmon : function(){
