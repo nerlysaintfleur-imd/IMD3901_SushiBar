@@ -11,7 +11,7 @@ AFRAME.registerComponent('delete-obj', {
         });
     },
     deleteMyself : function(){
-        //delete the obj
+        //remove the obj from kitchen parent
         const Context_AF = this;
         Context_AF.el.parentNode.removeChild(Context_AF.el);
     }
