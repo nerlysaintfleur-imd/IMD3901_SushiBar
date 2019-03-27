@@ -6,9 +6,6 @@ AFRAME.registerComponent('load-environment', {
         const Context_AF = this;
 
         Context_AF.createKitchen();
-        Context_AF.createAvocado();
-        Context_AF.createSalmon();
-        Context_AF.createSalt();
 
 
     },
