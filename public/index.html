@@ -9,6 +9,7 @@
     <script src="/js/load-environment.js"></script>
     <script src="/js/delete-obj.js"></script>
     <script src="/js/load-props.js"></script>
+    <script src="/js/load-rice.js"></script>
     <script src="/js/raycaster-listen.js"></script>
     <script src="/js/controller-management.js"></script>
   </head>
@@ -49,8 +50,8 @@
                         <a-asset-item id="stove-obj" src="/assets/models/environment/stove.obj"></a-asset-item>
                         <img id="stove-mtl" src="/assets/models/environment/stove_Base_Color.png"></img>
 
-                        <a-asset-item id="tableKitchen-obj" src="/assets/models/environment/table5.obj"></a-asset-item>
-                        <img id="tableKitchen-mtl" src="/assets/models/environment/Table_Base_Color.png"></img>
+                        <a-asset-item id="tableKitchen-obj" src="/assets/models/environment/table_v06.obj"></a-asset-item>
+                        <img id="tableKitchen-mtl" src="/assets/models/environment/table_v02.png"></img>
 
                         <a-asset-item id="trashCan-obj" src="/assets/models/environment/trashcan.obj"></a-asset-item>
                         <img id="trashCan-mtl" src="/assets/models/environment/Trash_Base_Color.png"></img>
@@ -128,63 +129,38 @@
 								</a-entity>
                 </a-entity>
 
-                <!--HAND CONTROLS-->
-
-              <a-entity id="leftHand" hand-controls="left"></a-entity>
-              <a-entity id="rightHand" hand-controls="right"></a-entity>
-
                 <!--LIGHTING-->
                 <a-entity light="type:directional; castShadow:false; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
                 
                 <!--CREATE-->
-                <a-obj-model src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" ></a-obj-model>
                 
-                <a-obj-model load-props src="#avocado-obj" material="src:#avocado-mtl" position="57 22.5 25" rotation="0 225 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model id="avocado" load-props src="#avocado-obj" material="src:#avocado-mtl" position="57 22.5 25" rotation="0 225 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model id="rice" load-rice src="#rice-obj" material="src:#rice-mtl" position="52 22.5 -10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;"></a-obj-model>
 
-                <a-obj-model load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#salt-obj" mtl="#salt-mtl" position="69 20 29" rotation="0 -90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <!--FOOD-->
+                <a-obj-model src="#chair-obj" material="src:#chair-mtl" position="0 0 0 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model src="#chair2-obj" material="src:#chair-mtl" position="0 0 0 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model src="#chair-obj" material="src:#chair-mtl" position="0 0 70 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model src="#chair2-obj" material="src:#chair-mtl" position="0 0 -70 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
 
-								<a-obj-model load-environment src="#bamboomat-obj" material="src:#bamboomat-mtl" position="54 22.8 -1" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#bambooskewersbunch-obj" mtl="#bambooskewersbunch-mtl" position="67 22.7 -12" rotation="0 -90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#bambooskewer-obj" mtl="#bambooskewer-mtl" position="57 23.5 -10" rotation="0 -90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <!--Kitchen Assembly-->
+                <a-obj-model src="#servingTop-obj" mtl="#servingTop-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model src="#countertop-obj" mtl="#countertop-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model src="#cupboard1-obj" mtl="#servingTop-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model src="#cupboard2-obj" mtl="#servingTop-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model src="#fridge-obj" material="src:#fridge-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model src="#stove-obj" material="src:#stove-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" ></a-obj-model>
+                <a-obj-model src="#tableKitchen-obj" material="src:#tableKitchen-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" ></a-obj-model>
+                <a-obj-model src="#trashCan-obj" material="src:#trashCan-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" ></a-obj-model>
 
-							  <a-obj-model load-environment src="#condensedmilkBowl-obj" material="src:#condensedmilkBowl-mtl" position="60 22.5 -10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#condensedmilkCan-obj" material="src:#condensedmilkCan-mtl" position="58 22.5 20" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <!--NPC&CHARACTERS-->
+                <a-obj-model src="#maleChar-obj" material="src:#maleChar-mtl" position="-85 0 27" rotation="0 90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;"></a-obj-model>
 
-								<a-obj-model load-environment src="#cucumberFull-obj" material="src:#cucumberFull-mtl" position="49 22.5 6" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-								<a-obj-model load-environment src="#cucumberHalf-obj" material="src:#cucumberHalf-mtl" position="49 22.5 6" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#cucumberSliced-obj" material="src:#cucumberSliced-mtl" position="49 22.7 6" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-
-								<a-obj-model load-environment src="#knife-obj" material="src:#knife-mtl" position="75 22.5 10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#measuringcup-obj" material="src:#measuringcup-mtl" position="68 22.9 0" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#rice-obj" material="src:#rice-mtl" position="52 22.5 -10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-
-                <a-obj-model load-environment src="#chair-obj" material="src:#chair-mtl" position="0 0 0 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#chair2-obj" material="src:#chair-mtl" position="0 0 0 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#chair-obj" material="src:#chair-mtl" position="0 0 70 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#chair2-obj" material="src:#chair-mtl" position="0 0 -70 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-
-                <a-obj-model load-environment src="#chopsticks-obj" material="src:#chopsticks-mtl" position="-33 27 0" rotation="0 0 0" scale="0.04 0.04 0.04" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#servingTop-obj" mtl="#servingTop-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#countertop-obj" mtl="#countertop-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#cupboard1-obj" mtl="#servingTop-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#cupboard2-obj" mtl="#servingTop-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#fridge-obj" material="src:#fridge-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#stove-obj" material="src:#stove-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#tableKitchen-obj" material="src:#tableKitchen-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model load-environment src="#trashCan-obj" material="src:#trashCan-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-
-                <a-obj-model load-environment src="#maleChar-obj" material="src:#maleChar-mtl" position="-85 0 27" rotation="0 90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-
-<!--More unnecesary props-->
-								<a-obj-model load-environment src="#bowl-obj" mtl="#bowl-mtl" position="0 0 0" rotation="0 0 0" scale="1 1 1" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-								<a-obj-model load-environment src="#plate-obj" mtl="#plate-mtl" position="0 0 0" rotation="0 0 0" scale="1 1 1" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-								<a-obj-model load-environment src="#water-obj" mtl="#water-mtl" position="0 0 0" rotation="0 0 0" scale="1 1 1" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-								<a-obj-model load-environment src="#cuttingBoard-obj" mtl="#cuttingBoard-mtl" position="0 0 0" rotation="0 0 0" scale="1 1 1" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-								<a-obj-model load-environment src="#dicedTomatoes-obj" mtl="#dicedTomatoes-mtl" position="-0 0 0" rotation="0 0 0" scale="1 1 1" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-								<a-obj-model load-environment src="#milk-obj" mtl="#milk-mtl" position="0 0 0" rotation="0 0 0" scale="1 1 1" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
-								<a-obj-model load-environment src="#casseroule-obj" mtl="#casseroule-mtl" position="0 0 0" rotation="0 0 0" scale="1 1 1" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <!--ACCESSORIES-->
+								<a-obj-model src="#bowl-obj" mtl="#bowl-mtl" position="0 0 0" rotation="0 0 0" scale="1 1 1" shadow="cast:false; receive:true;"></a-obj-model>
 
 
                 
