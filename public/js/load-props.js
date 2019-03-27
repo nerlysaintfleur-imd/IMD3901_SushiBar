@@ -6,7 +6,7 @@ AFRAME.registerComponent('load-props', {
         const Context_AF = this;
 
         //Add popping sound here
-        // Context_AF.popSound = document.querySelector('#popSound');
+        //Context_AF.popSound = document.querySelector('#popSound');
 
         Context_AF.el.addEventListener('click',function(event){
             console.log('click');
