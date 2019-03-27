@@ -9,6 +9,7 @@
     <script src="/js/load-environment.js"></script>
     <script src="/js/delete-obj.js"></script>
     <script src="/js/load-props.js"></script>
+    <script src="/js/raycaster-listen.js"></script>
     <script src="/js/controller-management.js"></script>
   </head>
         <body>
@@ -116,6 +117,10 @@
 		</a-assets>
                 <!--CAMERA CONTROLS-->
                 <a-entity id="mainCamera" position="0 40 -1"  camera look-controls wasd-controls="acceleration: 2000">
+                      <a-entity id="raycaster" raycaster></a-entity>
+                      <a-obj-model  src="#maleChar-obj" material="src:#maleChar-mtl" position="0.0 -40.12 1" rotation="0 180 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" raycaster-listen></a-obj-model>
+                      <!--<a-entity id="Player-1" src="primitive: sphere; radius: 2" material="color:red" raycaster-listen></a-entity>
+-->
 								<a-entity cursor="fuse:false, fuseTimeout:1000; rayOrigin:mouse"
 												position="0 0 -1"
 												geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03;"
@@ -133,16 +138,9 @@
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
                 
                 <!--CREATE-->
-                <a-obj-model load-environment src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 
-                <a-obj-model load-props src="#avocado-obj" material="src:#avocado-mtl" position="57 22.5 25" rotation="0 225 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;">
-									<a-animation onclick="load-props()" attribute="position"
-									dur="2000"
-									from="0 1.2 -2"
-									to="-5 1.2 -2"
-									repeat="1">
-									</a-animation>
-								</a-obj-model>
+                <a-obj-model load-props src="#avocado-obj" material="src:#avocado-mtl" position="57 22.5 25" rotation="0 225 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
 
                 <a-obj-model load-environment src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model load-environment src="#salt-obj" mtl="#salt-mtl" position="69 20 29" rotation="0 -90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
@@ -189,10 +187,7 @@
 								<a-obj-model load-environment src="#casseroule-obj" mtl="#casseroule-mtl" position="0 0 0" rotation="0 0 0" scale="1 1 1" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;"></a-obj-model>
 
 
-                <a-entity id="sky"
-                    geometry="primitive:sphere; radius:500;"
-                    material="shader:flat; src:#skymap;  aside:back; height:2048; width:2048">
-                </a-entity>
+                
             </a-scene>
 
 
