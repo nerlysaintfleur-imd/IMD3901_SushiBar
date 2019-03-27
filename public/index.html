@@ -7,7 +7,8 @@
     <!-- <script src="https://rawgit.com/takahirox/aframe-outline/master/build/aframe-outline.min.js"></script> ADDING OUTLINE SHADER -->
 		<script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
     <script src="/js/load-environment.js"></script>
-		<script src="/js/delete-obj.js"></script>
+    <script src="/js/delete-obj.js"></script>
+    <script src="/js/load-props.js"></script>
     <script src="/js/controller-management.js"></script>
   </head>
         <body>
@@ -134,8 +135,8 @@
                 <!--CREATE-->
                 <a-obj-model load-environment src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 
-                <a-obj-model load-environment src="#avocado-obj" material="src:#avocado-mtl" position="57 22.5 25" rotation="0 225 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;">
-									<a-animation onclick="load-environment()" attribute="position"
+                <a-obj-model load-props src="#avocado-obj" material="src:#avocado-mtl" position="57 22.5 25" rotation="0 225 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;" spherical-env-map="src:#skymap;">
+									<a-animation onclick="load-props()" attribute="position"
 									dur="2000"
 									from="0 1.2 -2"
 									to="-5 1.2 -2"
@@ -208,26 +209,4 @@
 	</head>
 </html>
 
-<!--
-	For simple object load, .js not required
-	<!DOCTYPE html>
-<html>
-    <head>
-        <title>Sushi バー</title>
-        <script src="js/aframe.min.js"></script>
-    </head>
 
-        <body>
-            <a-scene>
-                <a-asset>
-                    <a-asset-item id="kitchenOBJ" src="/assets/models/Environment_v02.obj"></a-asset-item>
-                    <a-asset-item id="kitchenMTL" src="/assets/textures/Environment_v02.mtl"></a-asset-item>
-                </a-asset>
-
-                <a-obj-model src="#kitchenOBJ" mtl="#kitchenMTL"></a-obj-model>
-            </a-scene>
-        </body>
-    </head>
-</html>
-
--->
