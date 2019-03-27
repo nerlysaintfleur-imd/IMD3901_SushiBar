@@ -8,48 +8,45 @@ AFRAME.registerComponent('load-props', {
         //Add popping sound here
         //Context_AF.popSound = document.querySelector('#popSound');
 
-        Context_AF.el.addEventListener('click',function(event){
-            console.log('click');
-            Context_AF.createAvocado();
-            Context_AF.createSalmon();
-            Context_AF.createSalt();
+        //Context_AF.el.addEventListener('click',function(event){
+            //console.log('click');
+            //Context_AF.relocateAvocado();
+            
 
             //Context_AF.popSound.components['sound'].playSound
+       // })
+
+        document.querySelector('#avocado').addEventListener('click', function() {
+            console.log('click');
+            Context_AF.relocateAvocado();
         })
+        
 
     },
-createAvocado : function(){
+    relocateAvocado : function(){
 
         //remove the obj from kitchen parent
         const Context_AF = this;
         Context_AF.el.parentNode.removeChild(Context_AF.el);
         console.log('click');
-        console.log('object disappeared');
+        console.log('Avocado object disappeared');
 
+        
+        //relocate to the bowl area
 
-},
-createSalmon : function(){
-    const Context_AF = this;
+        let avocadoElem  = document.createElement('a-entity');//create new element avocado in memory
+        avocadoElem.setAttribute('obj-model',{obj:'/assets/models/props/avacado/avacado.obj'});
+        avocadoElem.setAttribute('position',{x:0, y:0, z:0});
+        avocadoElem.setAttribute('scale',{x:1, y:1, z:1});
+        avocadoElem.setAttribute('material',{src:'/assets/models/props/avacado/avocado.png'});
+    
+        const scene = document.querySelector('a-scene');
+        scene.appendChild(avocadoElem);                     //append avodado to kitchen
 
-    let salmonElem  = document.createElement('a-entity');//create new element salmon in memory
-    salmonElem.setAttribute('obj-model',{obj:'/assets/models/salmon.obj'});
-    salmonElem.setAttribute('position',{x:0, y:0, z:0});
-    salmonElem.setAttribute('material',{src:'/assets/textures/salmon.png'});
-
-    const scene = document.querySelector('a-scene');
-    scene.appendChild(salmonElem);                     //append salmon to kitchen
-
-},
-createSalt : function(){
-    const Context_AF = this;
-
-    let saltElem  = document.createElement('a-obj-model');//create new element salt in memory
-    saltElem.setAttribute('obj-model',{obj:'/assets/models/props/salt/salt.obj'});
-    saltElem.setAttribute('position',{x:0, y:0, z:0});
-    saltElem.setAttribute('material',{src:'/assets/models/props/salt/salt.mtl'});
-
-    const scene = document.querySelector('a-scene');
-    scene.appendChild(saltElem);                     //append salt to kitchen
+        //Delay creation time
 
     }
+
 });
+
+//if the elements are all at the same location try to serve button and then see
