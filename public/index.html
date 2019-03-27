@@ -193,6 +193,17 @@
                     material="shader:flat; src:#skymap;  aside:back; height:2048; width:2048">
                 </a-entity>
             </a-scene>
+
+
+            <script src="/socket.io/socket.io.js"></script>
+            <script>  
+                let socket = io();
+        
+                //default connect event
+                 socket.on('connect', function() {
+                    console.log("connected!");
+                 });
+            </script>
 		</body>
 	</head>
 </html>
