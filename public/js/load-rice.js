@@ -45,11 +45,12 @@ AFRAME.registerComponent('load-rice', {
 
             setTimeout(function(){ alert('Rice Restocked' );
             let riceInventory  = document.createElement('a-entity');//create new element rice in memory
+            riceInventory.setAttribute('id','rice');
             riceInventory.setAttribute('obj-model',{obj:'/assets/models/props/rice/rice.obj'});
             riceInventory.setAttribute('position',{x:52, y:22.5, z:-10});
             riceInventory.setAttribute('scale',{x:1, y:1, z:1});
             riceInventory.setAttribute('material',{src:'/assets/models/props/rice/rice.png'});
-            riceInventory.setAttribute('script',{src:'/js/load-rice.js'});
+            riceInventory.setAttribute('load-rice',{});
 
 
             const scene2 = document.querySelector('a-scene');
