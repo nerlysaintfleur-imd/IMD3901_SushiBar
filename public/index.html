@@ -134,11 +134,11 @@
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
                 
                 <!--CREATE-->
-                <a-obj-model src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" ></a-obj-model>
+                <a-obj-model load-props src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" ></a-obj-model>
                 
-                <a-obj-model id="avocado" load-props src="#avocado-obj" material="src:#avocado-mtl" position="57 22.5 25" rotation="0 225 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
-                <a-obj-model src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;"></a-obj-model>
-                <a-obj-model id="rice" load-rice src="#rice-obj" material="src:#rice-mtl" position="52 22.5 -10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model id="avocado"  src="#avocado-obj" material="src:#avocado-mtl" position="57 22.5 25" rotation="0 225 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model id="salmon" src="#salmon-obj" material="src:#salmon-mtl" position="57 22.5 10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;"></a-obj-model>
+                <a-obj-model id="rice" src="#rice-obj" material="src:#rice-mtl" position="52 22.5 -10" rotation="0 0 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:true;"></a-obj-model>
 
                 <!--FOOD-->
                 <a-obj-model src="#chair-obj" material="src:#chair-mtl" position="0 0 0 " rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:true;"></a-obj-model>
@@ -168,9 +168,9 @@
 
 
             <script src="/socket.io/socket.io.js"></script>
-            <script>  
+            <script>
                 let socket = io();
-        
+
                 //default connect event
                  socket.on('connect', function() {
                     console.log("connected!");
@@ -179,5 +179,3 @@
 		</body>
 	</head>
 </html>
-
-
