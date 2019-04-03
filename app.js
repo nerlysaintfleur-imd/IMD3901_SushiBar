@@ -8,17 +8,32 @@ const LISTEN_PORT   = 8080;
 
 app.use((express.static(__dirname + '/public'))); //set root dir to the public folder
 
+
+
 //routes
-app.get('/index', function(req,res) {
-    res.sendFile(__dirname + '/public/index.html');
+app.get('/player1', function(req,res) {
+    res.sendFile(__dirname + '/public/player1.html');
+});
+
+app.get('/player2', function(req,res) {
+    res.sendFile(__dirname + '/public/player2.html');
 });
 
 socketIO.on('connection', function(socket) {
     console.log(socket.id + ' has connected!');
 
+
+
     socket.on('disconnect', function(data) {
         console.log(socket.id + ' has disconnected');
     });
+
+
+    socket.on('move', function(data) {
+        console.log('move event heard');
+        socketIO.sockets.emit('move', {x:1, y:1, z:1});
+    });
+
 });
 
 server.listen(LISTEN_PORT);
