@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<title>Sushi バー</title>
-    <script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
+	<script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>  ADDING OUTLINE SHADER -->
     <!-- <script src="https://rawgit.com/takahirox/aframe-outline/master/build/aframe-outline.min.js"></script> ADDING OUTLINE SHADER -->
 		<script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
@@ -152,10 +153,10 @@
 
 	
 				 //relocate to the bowl area
-				 alert ("Player 1 has clicked an element");
+				 //alert ("Player 1 has clicked an element");
 
 				 //load external js using jquery
-				 $.getScript("load-props.js", function(){
+				 $.getScript("/js/load-props.js", function(){
 					alert (external);
 				 });
 
