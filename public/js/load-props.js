@@ -41,7 +41,7 @@ AFRAME.registerComponent('load-props', {
         let avocadoElem  = document.createElement('a-entity');//create new element avocado in memory
         avocadoElem.setAttribute('id','relocateAvocado');
         avocadoElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/avocado/avocado.obj'});
-        avocadoElem.setAttribute('position',{x:1, y:1, z:1});
+        avocadoElem.setAttribute('position',{x:2, y:2, z:2});
         avocadoElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
         avocadoElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/avocado/avocado.png'});
 
