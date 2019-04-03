@@ -29,10 +29,16 @@ socketIO.on('connection', function(socket) {
     });
 
 
-    socket.on('move', function(data) {
+    socket.on('moveClickP2', function(data) {
         console.log('move event heard');
-        socketIO.sockets.emit('move', {x:1, y:1, z:1});
+        socketIO.sockets.emit('moveP2', {x:1, y:1, z:1});
     });
+
+    socket.on('moveClickP1', function(data) {
+        console.log('move event heard');
+        socketIO.sockets.emit('moveP1', {x:1, y:1, z:1});
+    });
+
 
 });
 
