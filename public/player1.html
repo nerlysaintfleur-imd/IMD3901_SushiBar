@@ -144,29 +144,17 @@
 				 
 
 				  document.querySelector('#avocado').addEventListener('click', function() {
+					  console.log("passing through server");
 					socket.emit('moveClickP2');
 					
 				});
 
-socket.on('moveP1', function(data) {
+			socket.on('moveP1', function(data) {
                 //create rgb color string for css
                 let coordinates = 'xyz(' + data.x + ',' + data.y + ',' + data.z + ')'; 
                 console.log("coordinates recieved: " + coordinates);
 
-	
- //relocate to the bowl area
-
-        let avocadoElem  = document.createElement('a-entity');//create new element avocado in memory
-        avocadoElem.setAttribute('id','relocateAvocado');
-        avocadoElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/avocado/avocado.obj'});
-        avocadoElem.setAttribute('position',{x:2, y:2, z:2});
-        avocadoElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
-        avocadoElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/avocado/avocado.png'});
-
-        const scene = document.querySelector('a-scene');
-        scene.appendChild(avocadoElem);                     //append avodado to kitchen
-
-			console.log("Moved to Bowl");
+		
 			});
 
             </script>
