@@ -6,7 +6,7 @@
     <!-- <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>  ADDING OUTLINE SHADER -->
     <!-- <script src="https://rawgit.com/takahirox/aframe-outline/master/build/aframe-outline.min.js"></script> ADDING OUTLINE SHADER -->
 		<script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
-    <script id="inventory" src="/js/load-props.js"></script>
+    <script src="/js/load-props.js"></script>
     <script src="/js/raycaster-listen.js"></script>
   </head>
         <body>
@@ -89,7 +89,11 @@
                       <a-entity id="raycaster" raycaster></a-entity>
                       <a-obj-model id="Player-1" src="#male2-obj" material="#male2-mtl" raycaster-listen></a-obj-model>
 
-
+								<a-entity cursor="fuse:false, fuseTimeout:1000; rayOrigin:mouse"
+												position="0 0 -1"
+												geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03;"
+												material="shader:flat; color:black">
+								</a-entity>
                 </a-entity>
 
 <!--LIGHTING-->
@@ -97,7 +101,7 @@
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
                 
                 <!--KITCHEN-->
-                <a-obj-model onclick="#inventory" src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-props src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <!--DECORATIONS (can't be interacted with)-->
                 <a-obj-model src="#canD-obj" material="src:#canD-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model src="#cucumberD-obj" material="src:#cucumberD-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
