@@ -39,7 +39,7 @@ AFRAME.registerComponent('load-props', {
         //relocate to the bowl area
 
         let avocadoElem  = document.createElement('a-entity');//create new element avocado in memory
-        avocadoInventory.setAttribute('id','relocateAvocado');
+        avocadoElem.setAttribute('id','relocateAvocado');
         avocadoElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/avocado/avocado.obj'});
         avocadoElem.setAttribute('position',{x:1, y:1, z:1});
         avocadoElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
@@ -79,7 +79,7 @@ AFRAME.registerComponent('load-props', {
         //relocate to the bowl area
 
         let riceElem  = document.createElement('a-entity');//create new element rice in memory
-        avocadoInventory.setAttribute('id','relocateRice');
+        riceElem.setAttribute('id','relocateRice');
         riceElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/rice/rice.obj'});
         riceElem.setAttribute('position',{x:1, y:1, z:1});
         riceElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
