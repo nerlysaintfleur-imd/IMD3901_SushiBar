@@ -65,6 +65,8 @@ AFRAME.registerComponent('load-props', {
           //Delay creation time to remake it
           }, 2000);
 
+          var external = ("Player 2 has received element");
+
     },
 
     relocateRice : function(){
