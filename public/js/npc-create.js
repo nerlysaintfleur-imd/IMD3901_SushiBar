@@ -33,5 +33,3 @@ AFRAME.registerComponent('npc-create', {
    
 
 });
-
-//if the elements are all at the same location try to serve button and then see
