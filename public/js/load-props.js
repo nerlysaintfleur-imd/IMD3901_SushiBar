@@ -6,15 +6,8 @@ AFRAME.registerComponent('load-props', {
         const Context_AF = this;
 
         //Add popping sound here
-        //Context_AF.popSound = document.querySelector('#popSound');
-
-        //Context_AF.el.addEventListener('click',function(event){
-            //console.log('click');
-            //Context_AF.relocateAvocado();
-
-
-            //Context_AF.popSound.components['sound'].playSound
-       // })
+        Context_AF.popSound = document.querySelector('#popSound');
+        Context_AF.popSound.components['sound'].playSound;
 
         document.querySelector('#avocado').addEventListener('click', function() {
             console.log('click');
