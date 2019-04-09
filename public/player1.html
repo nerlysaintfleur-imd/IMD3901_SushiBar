@@ -8,7 +8,7 @@
 	<script src="/js/load-props.js"></script>
 	<script src="/js/npc-create.js"></script>
 	<script src="/js/timer.js"></script>
-    <script src="/js/raycaster-listen.js"></script>
+  <script src="/js/raycaster-listen.js"></script>
   </head>
         <body>
             <h1>Welcome to the Sushi バー(Bar) Environment Test Scene</h1>
@@ -129,10 +129,10 @@
                 <a-obj-model id="salmon" src="#salmon-obj" material="src:#salmon-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <!--<a-obj-model id="salt" src="#salt-obj" mtl="#salt-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>-->
                 <a-obj-model id="seaweed" src="#seaweed-obj" material="src:#seaweed-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-entity id = "bar" obj-model="obj: #servebar-obj" material="src: #servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-entity> 
-                
+                <a-entity id = "bar" obj-model="obj: #servebar-obj" material="src: #servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-entity>
+
                 <!--NPC-->   
-                <a-entity id = "npc" obj-model="obj: #male2-obj" material="src: #male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="2.937 2.937 2.937" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-entity> 
+                <a-entity id = "npc" obj-model="obj: #male2-obj" material="src: #male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="2.937 2.937 2.937" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-entity>
 
 
                 <a-entity id="sky"
@@ -150,19 +150,19 @@
                 //default connect event
                  socket.on('connect', function() {
 					console.log("connected!");
-					
+
 				 });
-				 
+
 
 				  document.querySelector('#avocado').addEventListener('click', function() {
 					  console.log("passing through server");
 					socket.emit('moveClickP2');
-					
+
 				});
 
 			socket.on('moveP1', function(data) {
                 //create rgb color string for css
-                let coordinates = 'xyz(' + data.x + ',' + data.y + ',' + data.z + ')'; 
+                let coordinates = 'xyz(' + data.x + ',' + data.y + ',' + data.z + ')';
                 console.log("coordinates recieved: " + coordinates);
 
 
