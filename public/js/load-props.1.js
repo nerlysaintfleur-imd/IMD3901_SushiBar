@@ -1,6 +1,6 @@
 'use strict';
 
-AFRAME.registerComponent('load-props', {
+AFRAME.registerComponent('load-props.1', {
     schema : {},
     init :function(){
         const Context_AF = this;

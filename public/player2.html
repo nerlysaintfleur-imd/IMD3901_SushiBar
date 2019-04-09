@@ -2,11 +2,13 @@
 <html>
 	<head>
 		<title>Sushi バー</title>
-    <script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
-    <!-- <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>  ADDING OUTLINE SHADER -->
-    <!-- <script src="https://rawgit.com/takahirox/aframe-outline/master/build/aframe-outline.min.js"></script> ADDING OUTLINE SHADER -->
+	<script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
-    <script src="/js/load-props.js"></script>
+	<script src="/js/load-props.js"></script>
+	<script src="/js/load-props.1.js"></script>
+	<script src="/js/timer.js"></script>
+	<script src="/js/npc-create.js"></script>
     <script src="/js/raycaster-listen.js"></script>
   </head>
         <body>
@@ -82,19 +84,16 @@
 
 													<!--LOADING NPC-->
 													<a-asset-item id="male2-obj" src="/assets/models/npc/Male2/Npc2.obj"></a-asset-item>
-													<a-asset-item id="male2-mtl" src="/assets/models/npc/Male2/Npc2.mtl"></a-asset-item>
-		</a-assets>
-                <!--CAMERA CONTROLS-->
-                <a-entity id="mainCamera" position="0 40 -1"  camera look-controls wasd-controls="acceleration: 2000">
-                      <a-entity id="raycaster" raycaster></a-entity>
-                      <a-obj-model id="Player-1" src="#male2-obj" material="#male2-mtl" raycaster-listen></a-obj-model>
-
-								<a-entity cursor="fuse:false, fuseTimeout:1000; rayOrigin:mouse"
-												position="0 0 -1"
-												geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03;"
-												material="shader:flat; color:black">
-								</a-entity>
-                </a-entity>
+                                                    <a-asset-item id="male2-mtl" src="/assets/models/npc/Male2/Npc2.mtl"></a-asset-item>
+                                                
+                </a-assets>
+                <!--CAMERA CONTROLS-->
+                      <a-entity id="mainCamera" position="0 40 -1"  camera look-controls wasd-controls="acceleration: 2000">
+                      <a-entity cursor="fuse:false; fuseTimeout:1000; rayOrigin:mouse"
+                                 position="0 0 -1">
+                      </a-entity>
+                </a-entity>
+                                                
 
 <!--LIGHTING-->
                 <a-entity light="type:directional; castShadow:false; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
@@ -123,7 +122,10 @@
                 <a-obj-model id="salmon" src="#salmon-obj" material="src:#salmon-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <!--<a-obj-model id="salt" src="#salt-obj" mtl="#salt-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>-->
                 <a-obj-model id="seaweed" src="#seaweed-obj" material="src:#seaweed-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model id="servebar" src="#servebar-obj" material="src:#servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-entity id = "bar" obj-model="obj: #servebar-obj" material="src: #servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-entity> 
+                
+                <!--NPC-->   
+                <a-entity id = "npc" obj-model="obj: #male2-obj" material="src: #male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="2.937 2.937 2.937" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-entity> 
 
 
                 <a-entity id="sky"
@@ -141,7 +143,28 @@
                 //default connect event
                  socket.on('connect', function() {
                     console.log("connected!");
-                 });
+				 });
+				 
+				 document.querySelector('#avocado').addEventListener('click', function() {
+        			socket.emit('moveClickP1');
+				});
+				
+
+			socket.on('moveP2', function(data) {
+                //create rgb color string for css
+                let coordinates = 'xyz(' + data.x + ',' + data.y + ',' + data.z + ')'; 
+                console.log("coordinates recieved: " + coordinates);
+
+	
+				 //relocate to the bowl area
+				 //alert ("Player 1 has clicked an element");
+
+				 //load external js using jquery
+				 $.getScript("/js/load-props.1.js", function(){
+					alert (external);
+				 });
+
+			});
             </script>
 		</body>
 	</head>
