@@ -11,15 +11,17 @@
   <script src="/js/raycaster-listen.js"></script>
   </head>
         <body>
-            <h1>Welcome to the Sushi バー(Bar) Environment Test Scene</h1>
-            <!--<a-scene outline>-->
-
+            <h1>Welcome to the Sushi バー(Bar) Environment</h1>
             <a-scene time shadow="type:basic;" >
                     <a-assets timeout="4000">
 													<!--LOADING KITCHEN-->
 	                        <a-asset-item id="kitchenEnviro-obj" src="/assets/models/kitchenEnviro/kitchen.obj"></a-asset-item>
 	                        <img id="kitchenEnviroFloor-mtl" src="/assets/models/kitchenEnviro/texture.png"></img>
-
+													<!--SOUND LOAD SRC-->
+													 <audio id="music-sound" src="/assets/sounds/music_v02.mp3"></audio>
+													 <audio id="recharge-sound" src="/assets/sounds/recharge.mp3"></audio>
+													 <audio id="dingCounter-sound" src="/assets/sounds/dingCounter.mp3"></audio>
+													 <audio id="pop-sound" src="/assets/sounds/pop.mp3"></audio>
 
 	                        <!--LOADING DECORATIONS-->
 	                        <a-asset-item id="canD-obj" src="/assets/models/kitchenEnviro/decorations/can/can.obj"></a-asset-item>
@@ -49,10 +51,6 @@
 	                        <a-asset-item id="seaweed2D-obj" src="/assets/models/kitchenEnviro/decorations/seaweed/seaweed2.obj"></a-asset-item>
 	                        <img id="seaweed2D-mtl" src="/assets/models/kitchenEnviro/decorations/seaweed/seaweed2.png"></img>
 
-	                        <!--<a-asset-item id="saltD-obj" src="/assets/models/kitchenEnviro/decorations/salt/salt.obj"></a-asset-item>-->
-	                        <!--<a-asset-item id="saltD-mtl" src="/assets/models/kitchenEnviro/decorations/salt/salt.mtl"></a-asset-item>-->
-
-
 	                        <!--LOADING PROPS-->
 	                        <a-asset-item id="avocado-obj" src="/assets/models/kitchenEnviro/props/avocado/avocado.obj"></a-asset-item>
 	                        <img id="avocado-mtl" src="/assets/models/kitchenEnviro/props/avocado/avocado.png"></img>
@@ -71,9 +69,6 @@
 
 	                        <a-asset-item id="salmon-obj" src="/assets/models/kitchenEnviro/props/salmon/salmon.obj"></a-asset-item>
 	                        <img id="salmon-mtl" src="/assets/models/kitchenEnviro/props/salmon/salmon.png"></img>
-
-	                        <!--<a-asset-item id="salt-obj" src="/assets/models/kitchenEnviro/props/salt/salt.obj"></a-asset-item>-->
-	                        <!--<a-asset-item id="salt-mtl" src="/assets/models/kitchenEnviro/props/salt/salt.mtl"></a-asset-item>-->
 
 	                        <a-asset-item id="seaweed-obj" src="/assets/models/kitchenEnviro/props/seaweed/seaweed.obj"></a-asset-item>
 	                        <img id="seaweed-mtl" src="/assets/models/kitchenEnviro/props/seaweed/seaweed.png"></img>
@@ -102,10 +97,16 @@
 									</a-text>
                 </a-entity>
 
-<!--LIGHTING-->
+								<!--LIGHTING-->
                 <a-entity light="type:directional; castShadow:false; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
-                
+
+								<!--SOUND-->
+								<a-entity id="music" sound="src:#music-sound;"></a-entity>
+								<a-entity id="ding" sound="src:#dingCounter-sound;"></a-entity>
+							  <a-entity id="recharge" sound="src:#recharge-sound;"></a-entity>
+								<a-entity id="pop" sound="src:#pop-sound;"></a-entity>
+
                 <!--KITCHEN-->
                 <a-obj-model load-props timer src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <!--DECORATIONS (can't be interacted with)-->
@@ -115,10 +116,8 @@
                 <a-obj-model src="#cupD-obj" material="src:#cupD-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model src="#knifeD-obj" material="src:#knifeD-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model src="#matD-obj" material="src:#matD-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model src="#riceD-obj" material="src:#riceD-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model src="#seaweed1D-obj" material="src:#seaweed1D-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model src="#seaweed2D-obj" material="src:#seaweed2D-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <!--<a-obj-model src="#saltD-obj" mtl="#saltD-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>-->
 
                 <!--PROPS-->             
                 <a-obj-model id="avocado" src="#avocado-obj" material="src:#avocado-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
@@ -126,8 +125,7 @@
                 <a-obj-model id="knife" src="#knife-obj" material="src:#knife-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="cup" src="#cup-obj" material="src:#cup-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="rice" src="#rice-obj" material="src:#rice-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model id="salmon" src="#salmon-obj" material="src:#salmon-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <!--<a-obj-model id="salt" src="#salt-obj" mtl="#salt-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>-->
+                <a-obj-model id="salmon" src="#salmon-obj" material="src:#salmon-mtl" position="43.559 -0.657 -13.436" rotation="0 100.000 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="seaweed" src="#seaweed-obj" material="src:#seaweed-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-entity id = "bar" obj-model="obj: #servebar-obj" material="src: #servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-entity>
 
