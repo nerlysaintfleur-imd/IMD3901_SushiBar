@@ -5,17 +5,25 @@ AFRAME.registerComponent('load-props', {
     init :function(){
         const Context_AF = this;
 
-        //Add popping sound here
-        Context_AF.popSound = document.querySelector('#popSound');
-        Context_AF.popSound.components['sound'].playSound;
+        //Play music
+        Context_AF.musicSound = document.querySelector('#music');
+        Context_AF.musicSound.components['sound'].playSound();
+
+        Context_AF.popSound = document.querySelector('#pop');
 
         document.querySelector('#avocado').addEventListener('click', function() {
             console.log('click');
+            //Pop sound
+            Context_AF.popSound.components['sound'].playSound();
+
             Context_AF.relocateAvocado();
         })
 
         document.querySelector('#rice').addEventListener('click', function() {
             console.log('click');
+            //Pop sound
+            Context_AF.popSound.components['sound'].playSound();
+
             Context_AF.relocateRice();
         })
 
@@ -55,10 +63,12 @@ AFRAME.registerComponent('load-props', {
               const scene2 = document.querySelector('a-scene');
               scene2.appendChild(avocadoInventory);                     //append rice to kitchen
 
+              //Recharge sound
+              this.rechargeSound = document.querySelector('#recharge');
+              this.rechargeSound.components['sound'].playSound();
+
           //Delay creation time to remake it
           }, 2000);
-
-          var external = ("Player 2 has received element");
 
     },
 
@@ -95,6 +105,10 @@ AFRAME.registerComponent('load-props', {
 
             const scene2 = document.querySelector('a-scene');
             scene2.appendChild(riceInventory);                     //append rice to kitchen
+
+            //Recharge sound
+            this.rechargeSound = document.querySelector('#recharge');
+            this.rechargeSound.components['sound'].playSound();
 
         //Delay creation time to remake it
         }, 2000);
