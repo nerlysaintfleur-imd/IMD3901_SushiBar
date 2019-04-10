@@ -9,12 +9,12 @@ AFRAME.registerComponent('npc-create', {
         document.querySelector('#bar').addEventListener('click', function() {
             console.log('click');
             Context_AF.deleteNPC();
-        }),
+        })
+
+},
 
         deleteNPC : function(){
                let npc = document.querySelector('#npc');
-               //npc.setAttribute('visible', false);
-               //npc.parentNode.removeChild(npc);
                npc.parentNode.removeChild(npc);
                console.log('NPC GONE');
 
