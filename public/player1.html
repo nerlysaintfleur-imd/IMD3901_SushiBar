@@ -173,8 +173,8 @@
 		 document.querySelector('#avocado').addEventListener('click', function() {
 				 console.log("avocado clicked!");
 				 socket.emit('moveAvacado',{id:"avocado", playerId:socket.id});
-				 Context_AF.popSound = document.querySelector('#pop');
-				 Context_AF.popSound.components['sound'].playSound();
+				 this.popSound = document.querySelector('#pop');
+				 this.popSound.components['sound'].playSound();
 
 		 });
 
