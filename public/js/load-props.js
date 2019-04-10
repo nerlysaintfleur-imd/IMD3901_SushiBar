@@ -65,6 +65,9 @@ AFRAME.registerComponent('load-props', {
         const scene = document.querySelector('a-scene');
         scene.appendChild(avocadoElem);                     //append avodado to kitchen
 
+        let hudBoardUpdate = document.querySelector('#hudBoard');
+        hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_avo_check.png'});
+
         //Delay creation time
               setTimeout(function(){ alert('Avocado Restocked' );
               let avocadoInventory  = document.createElement('a-entity');//create new element rice in memory
@@ -82,6 +85,9 @@ AFRAME.registerComponent('load-props', {
               //Recharge sound
               this.rechargeSound = document.querySelector('#recharge');
               this.rechargeSound.components['sound'].playSound();
+
+              hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_rice.png'});
+
 
           //Delay creation time to remake it
         }, 1000);
@@ -107,6 +113,9 @@ AFRAME.registerComponent('load-props', {
         const scene = document.querySelector('a-scene');
         scene.appendChild(cucumberElem);                     //append cucumber to kitchen
 
+        let hudBoardUpdate = document.querySelector('#hudBoard');
+        hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_cuc_check.png'});
+
         //Delay creation time
               setTimeout(function(){ alert('Cucumber Restocked' );
               let cucumberInventory  = document.createElement('a-entity');//create new element cucumber in memory
@@ -120,6 +129,9 @@ AFRAME.registerComponent('load-props', {
 
               const scene2 = document.querySelector('a-scene');
               scene2.appendChild(cucumberInventory);                     //append cucumber to kitchen
+
+              hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_sal.png'});
+
 
               //Recharge sound
               this.rechargeSound = document.querySelector('#recharge');
@@ -148,6 +160,9 @@ AFRAME.registerComponent('load-props', {
 
         const scene = document.querySelector('a-scene');
         scene.appendChild(seaweedElem);                     //append seaweed to kitchen
+
+        let hudBoardUpdate = document.querySelector('#hudBoard');
+        hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_sea_check.png'});
 
         //Delay creation time
               setTimeout(function(){ alert('Seaweed Restocked' );
@@ -191,6 +206,9 @@ AFRAME.registerComponent('load-props', {
         const scene = document.querySelector('a-scene');
         scene.appendChild(salmonElem);                     //append salmon to kitchen
 
+        let hudBoardUpdate = document.querySelector('#hudBoard');
+        hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_sal_check.png'});
+
         //Delay creation time
               setTimeout(function(){ alert('Salmon Restocked' );
               let salmonInventory  = document.createElement('a-entity');//create new element seaweed in memory
@@ -205,6 +223,8 @@ AFRAME.registerComponent('load-props', {
 
               const scene2 = document.querySelector('a-scene');
               scene2.appendChild(salmonInventory);                     //append salmon to kitchen
+
+              hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_sea.png'});
 
               //Recharge sound
               this.rechargeSound = document.querySelector('#recharge');
@@ -237,6 +257,9 @@ AFRAME.registerComponent('load-props', {
         const scene = document.querySelector('a-scene');
         scene.appendChild(riceElem);                     //append rice to kitchen
 
+        let hudBoardUpdate = document.querySelector('#hudBoard');
+        hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_rice_check.png'});
+
             setTimeout(function(){ alert('Rice Restocked' );
             let riceInventory  = document.createElement('a-entity');//create new element rice in memory
             riceInventory.setAttribute('id','rice');
@@ -249,6 +272,9 @@ AFRAME.registerComponent('load-props', {
 
             const scene2 = document.querySelector('a-scene');
             scene2.appendChild(riceInventory);                     //append rice to kitchen
+
+            hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_cuc.png'});
+
 
             //Recharge sound
             this.rechargeSound = document.querySelector('#recharge');
