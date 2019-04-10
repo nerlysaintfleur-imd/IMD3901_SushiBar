@@ -58,7 +58,7 @@ AFRAME.registerComponent('load-props', {
         let avocadoElem  = document.createElement('a-entity');//create new element avocado in memory
         avocadoElem.setAttribute('id','relocateAvocado');
         avocadoElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/avocado/avocado.obj'});
-        avocadoElem.setAttribute('position',{x:2, y:2, z:2});
+        avocadoElem.setAttribute('position',{x:-8.656, y:-0.334, z:-0.125});
         avocadoElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
         avocadoElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/avocado/avocado.png'});
 
@@ -100,7 +100,7 @@ AFRAME.registerComponent('load-props', {
         let cucumberElem  = document.createElement('a-entity');//create new element avocado in memory
         cucumberElem.setAttribute('id','relocateCucumber');
         cucumberElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/cucumber/cucumber.obj'});
-        cucumberElem.setAttribute('position',{x:2, y:2, z:2});
+        cucumberElem.setAttribute('position',{x:-25.731, y:0.082, z:5.153});
         cucumberElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
         cucumberElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/cucumber/cucumber.png'});
 
@@ -142,7 +142,7 @@ AFRAME.registerComponent('load-props', {
         let seaweedElem  = document.createElement('a-entity');//create new element avocado in memory
         seaweedElem.setAttribute('id','relocateSeaweed');
         seaweedElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/seaweed/seaweed.obj'});
-        seaweedElem.setAttribute('position',{x:2, y:2, z:2});
+        seaweedElem.setAttribute('position',{x:13.760, y:0.468, z:-1.655});
         seaweedElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
         seaweedElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/seaweed/seaweed.png'});
 
@@ -171,6 +171,50 @@ AFRAME.registerComponent('load-props', {
         }, 2000);
 
     },
+    relocateSalmon : function(){
+
+        //remove the obj from kitchen parent
+        let salmon = document.querySelector('#salmon');
+        salmon.parentNode.removeChild(salmon);
+        console.log('Salmon object disappeared');
+
+
+        //relocate to the cutting board area
+
+        let salmonElem  = document.createElement('a-entity');//create new element salmon in memory
+        salmonElem.setAttribute('id','relocateSalmon');
+        salmonElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/salmon/salmon.obj'});
+        salmonElem.setAttribute('position',{x:0, y:0, z:0});
+        salmonElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+        salmonElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/salmon/salmon.png'});
+
+        const scene = document.querySelector('a-scene');
+        scene.appendChild(salmonElem);                     //append salmon to kitchen
+
+        //Delay creation time
+              setTimeout(function(){ alert('Salmon Restocked' );
+              let salmonInventory  = document.createElement('a-entity');//create new element seaweed in memory
+              salmonInventory.setAttribute('id','salmon');
+              salmonInventory.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/salmon/salmon.obj'});
+              salmonInventory.setAttribute('position',{x:43.559, y:-0.657, z:-13.436});
+              salmonInventory.setAttribute('rotation',{x:0, y:100.0, z:0});
+              salmonInventory.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+              salmonInventory.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/salmon/salmon.png'});
+              salmonInventory.setAttribute('load-props',{});
+
+
+              const scene2 = document.querySelector('a-scene');
+              scene2.appendChild(salmonInventory);                     //append salmon to kitchen
+
+              //Recharge sound
+              this.rechargeSound = document.querySelector('#recharge');
+              this.rechargeSound.components['sound'].playSound();
+
+          //Delay creation time to remake it
+        }, 5000);
+
+    },
+
 
     relocateRice : function(){
 
@@ -186,7 +230,7 @@ AFRAME.registerComponent('load-props', {
         let riceElem  = document.createElement('a-entity');//create new element rice in memory
         riceElem.setAttribute('id','relocateRice');
         riceElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/rice/rice.obj'});
-        riceElem.setAttribute('position',{x:1, y:1, z:1});
+        riceElem.setAttribute('position',{x:-26.953, y:-0.353, z:-20.131});
         riceElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
         riceElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/rice/rice.png'});
 
