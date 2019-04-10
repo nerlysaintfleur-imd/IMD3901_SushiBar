@@ -77,11 +77,11 @@
 	                        <img id="servebar-mtl" src="/assets/models/kitchenEnviro/texture.png"></img>
 
 													<!--LOADING NPC-->
-													<a-asset-item id="male2-obj" src="/assets/models/npc/Male2/Npc2.obj"></a-asset-item>
-													<a-asset-item id="male2-mtl" src="/assets/models/npc/Male2/Npc2.mtl"></a-asset-item>
+													<a-asset-item id="male3-obj" src="/assets/models/npc/Male3/male1_stand.obj"></a-asset-item>
+													<a-asset-item id="male3-mtl" src="/assets/models/npc/Male3/final_texture.png"></a-asset-item>
 		</a-assets>
                 <!--CAMERA CONTROLS-->
-                <a-entity id="mainCamera" position="0 40 -1"  camera look-controls wasd-controls="acceleration: 2000">
+                <a-entity id="mainCamera" position="0 40 -1"  camera look-controls>
 								<a-entity cursor="fuse:false; fuseTimeout:1000; rayOrigin:mouse"
 												position="0 0 -1">
 								</a-entity>
@@ -126,10 +126,10 @@
                 <a-obj-model id="rice" src="#rice-obj" material="src:#rice-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="salmon" src="#salmon-obj" material="src:#salmon-mtl" position="43.559 -0.657 -13.436" rotation="0 100.000 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="seaweed" src="#seaweed-obj" material="src:#seaweed-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-entity id = "bar" obj-model="obj: #servebar-obj" material="src: #servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-entity>
+                <a-obj-model id = "bar" src="#servebar-obj" material="src:#servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
 
                 <!--NPC-->   
-                <a-entity id = "npc" obj-model="obj: #male2-obj" material="src: #male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="2.937 2.937 2.937" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-entity>
+                <a-obj-model id ="npc" src="#male3-obj" material="src:#male3-mtl" position="-51.837 0 0" rotation="0 90 0" scale="2.937 2.937 2.937" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 
             </a-scene>
 
