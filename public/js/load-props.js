@@ -178,6 +178,8 @@ AFRAME.registerComponent('load-props', {
               const scene2 = document.querySelector('a-scene');
               scene2.appendChild(seaweedInventory);                     //append seaweed to kitchen
 
+              hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_serve.png'});
+
               //Recharge sound
               this.rechargeSound = document.querySelector('#recharge');
               this.rechargeSound.components['sound'].playSound();
