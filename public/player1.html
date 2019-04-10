@@ -102,13 +102,12 @@
                 <a-entity light="type: ambient; intensity: 0.9; color:#bbb;"></a-entity>
 
 								<!--SOUND-->
-								<a-entity id="music" sound="src:#music-sound;"></a-entity>
 								<a-entity id="ding" sound="src:#dingCounter-sound;"></a-entity>
 							  <a-entity id="recharge" sound="src:#recharge-sound;"></a-entity>
 								<a-entity id="pop" sound="src:#pop-sound;"></a-entity>
 
                 <!--KITCHEN-->
-                <a-obj-model load-props timer src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model load-props timer sound="src:#music-sound; autoplay:true; loop:true" src="#kitchenEnviro-obj" material="src:#kitchenEnviroFloor-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <!--DECORATIONS (can't be interacted with)-->
                 <a-obj-model src="#canD-obj" material="src:#canD-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model src="#cucumberD-obj" material="src:#cucumberD-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
@@ -131,12 +130,6 @@
 
                 <!--NPC-->   
                 <a-entity id = "npc" obj-model="obj: #male2-obj" material="src: #male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="2.937 2.937 2.937" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-entity>
-
-
-                <a-entity id="sky"
-                    geometry="primitive:sphere; radius:500;"
-                    material="shader:flat; src:#skymap;  aside:back; height:2048; width:2048">
-                </a-entity>
                 
             </a-scene>
 
