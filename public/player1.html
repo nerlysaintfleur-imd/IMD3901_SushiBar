@@ -84,14 +84,14 @@
 													<a-asset-item id="hudBoard-obj" src="/assets/models/kitchenEnviro/HUD/board.obj"></a-asset-item>
 													<img id="hudBoard-avo-mtl" src="/assets/models/kitchenEnviro/HUD/board_avo.png"></img>
 													<img id="hudBoard-avoCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_avo_check.png"></img>
-													<img id="hudBoard-rice-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
-													<img id="hudBoard-riceCheck-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
-													<img id="hudBoard-cucumber-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
-													<img id="hudBoard-cucumberCheck-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
-													<img id="hudBoard-salmon-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
-													<img id="hudBoard-salmonCheck-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
-													<img id="hudBoard-seaweed-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
-													<img id="hudBoard-seaweedCheck-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+													<img id="hudBoard-rice-mtl" src="/assets/models/kitchenEnviro/HUD/board_rice.png"></img>
+													<img id="hudBoard-riceCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_rice_check.png"></img>
+													<img id="hudBoard-cucumber-mtl" src="/assets/models/kitchenEnviro/HUD/board_cuc.png"></img>
+													<img id="hudBoard-cucumberCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_cuc_check.png"></img>
+													<img id="hudBoard-salmon-mtl" src="/assets/models/kitchenEnviro/HUD/board_sal.png"></img>
+													<img id="hudBoard-salmonCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_sal_check.png"></img>
+													<img id="hudBoard-seaweed-mtl" src="/assets/models/kitchenEnviro/HUD/board_sea.png"></img>
+													<img id="hudBoard-seaweedCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_sea_check.png"></img>
 
 		</a-assets>
                 <!--CAMERA CONTROLS-->
@@ -151,7 +151,9 @@
 
                 <!--NPC-->   
                 <a-obj-model id="npc" src="#male2-obj" material="src:#male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                
+                <!--HUD--> 
+								<a-obj-model id="hudBoard" src="#hudBoard-obj" material="src:#hudBoard-avo-mtl" position="15.590 32.0 -30.489" rotation="0 0 0" scale="4 4 4" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+					  
             </a-scene>
 
 
