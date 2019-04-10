@@ -178,8 +178,8 @@
 		 document.querySelector('#seaweed').addEventListener('click', function() {
 				 console.log("seaweed clicked!");
 				 socket.emit('moveSeaweed',{id:"seaweed", playerId:socket.id});
-			     Context_AF.popSound = document.querySelector('#pop');
-				 Context_AF.popSound.components['sound'].playSound();
+			   this.popSound = document.querySelector('#pop');
+				 this.popSound.components['sound'].playSound();
 
 		 });
 
@@ -188,8 +188,8 @@
 		 document.querySelector('#cucumber').addEventListener('click', function() {
 				 console.log("cucumber clicked!");
 				 socket.emit('moveCucumber',{id:"cucumber", playerId:socket.id});
-				 Context_AF.popSound = document.querySelector('#pop');
-				 Context_AF.popSound.components['sound'].playSound();
+				 this.popSound = document.querySelector('#pop');
+				 this.popSound.components['sound'].playSound();
 
 		 });
 
@@ -197,8 +197,8 @@
 		 document.querySelector('#salmon').addEventListener('click', function() {
 				 console.log("salmon clicked!");
 				 socket.emit('moveSalmon',{id:"salmon", playerId:socket.id});
-			     Context_AF.popSound = document.querySelector('#pop');
-				 Context_AF.popSound.components['sound'].playSound();
+			   this.popSound = document.querySelector('#pop');
+				 this.popSound.components['sound'].playSound();
 
 		 });
 
@@ -206,8 +206,8 @@
 		 document.querySelector('#rice').addEventListener('click', function() {
 				 console.log("rice clicked!");
 				 socket.emit('moveRice',{id:"rice", playerId:socket.id});
-			     Context_AF.popSound = document.querySelector('#pop');
-				 Context_AF.popSound.components['sound'].playSound();
+			   this.popSound = document.querySelector('#pop');
+				 this.popSound.components['sound'].playSound();
 
 		 });
 
@@ -477,6 +477,10 @@
 				}, 3000);
 
 		 });
+
+		 ////////////////
+		 //NEW Customer//
+		 ////////////////
 
 	socket.on('newCustomer', function(data) {
 		let npc = document.querySelector('#npc');
