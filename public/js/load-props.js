@@ -5,10 +5,6 @@ AFRAME.registerComponent('load-props', {
     init :function(){
         const Context_AF = this;
 
-        //Play music
-        Context_AF.musicSound = document.querySelector('#music');
-        Context_AF.musicSound.components['sound'].playSound();
-
         Context_AF.popSound = document.querySelector('#pop');
 
         document.querySelector('#avocado').addEventListener('click', function() {
@@ -26,7 +22,27 @@ AFRAME.registerComponent('load-props', {
 
             Context_AF.relocateRice();
         })
+        document.querySelector('#cucumber').addEventListener('click', function() {
+            console.log('click');
+            //Pop sound
+            Context_AF.popSound.components['sound'].playSound();
 
+            Context_AF.relocateCucumber();
+        })
+        document.querySelector('#salmon').addEventListener('click', function() {
+            console.log('click');
+            //Pop sound
+            Context_AF.popSound.components['sound'].playSound();
+
+            Context_AF.relocateSalmon();
+        })
+        document.querySelector('#seaweed').addEventListener('click', function() {
+            console.log('click');
+            //Pop sound
+            Context_AF.popSound.components['sound'].playSound();
+
+            Context_AF.relocateSeaweed();
+        })
 
     },
     relocateAvocado : function(){
@@ -68,7 +84,49 @@ AFRAME.registerComponent('load-props', {
               this.rechargeSound.components['sound'].playSound();
 
           //Delay creation time to remake it
-          }, 2000);
+        }, 1000);
+
+    },
+    relocateCucumber : function(){
+
+        //remove the obj from kitchen parent
+        let cucumber = document.querySelector('#cucumber');
+        cucumber.parentNode.removeChild(cucumber);
+        console.log('Cucumber object disappeared');
+
+
+        //relocate to the cutting board area
+
+        let cucumberElem  = document.createElement('a-entity');//create new element avocado in memory
+        cucumberElem.setAttribute('id','relocateCucumber');
+        cucumberElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/cucumber/cucumber.obj'});
+        cucumberElem.setAttribute('position',{x:2, y:2, z:2});
+        cucumberElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+        cucumberElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/cucumber/cucumber.png'});
+
+        const scene = document.querySelector('a-scene');
+        scene.appendChild(cucumberElem);                     //append cucumber to kitchen
+
+        //Delay creation time
+              setTimeout(function(){ alert('Cucumber Restocked' );
+              let cucumberInventory  = document.createElement('a-entity');//create new element cucumber in memory
+              cucumberInventory.setAttribute('id','cucumber');
+              cucumberInventory.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/cucumber/cucumber.obj'});
+              cucumberInventory.setAttribute('position',{x:0, y:0, z:0});
+              cucumberInventory.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+              cucumberInventory.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/cucumber/cucumber.png'});
+              cucumberInventory.setAttribute('load-props',{});
+
+
+              const scene2 = document.querySelector('a-scene');
+              scene2.appendChild(cucumberInventory);                     //append cucumber to kitchen
+
+              //Recharge sound
+              this.rechargeSound = document.querySelector('#recharge');
+              this.rechargeSound.components['sound'].playSound();
+
+          //Delay creation time to remake it
+        }, 1000);
 
     },
 
@@ -111,7 +169,7 @@ AFRAME.registerComponent('load-props', {
             this.rechargeSound.components['sound'].playSound();
 
         //Delay creation time to remake it
-        }, 2000);
+      }, 3000);
 
     }
 
