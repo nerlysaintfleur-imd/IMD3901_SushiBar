@@ -157,6 +157,7 @@
 			console.log("connected!");
 		 });
 
+
 		 //Customer CLICKED
 		 document.querySelector('#bar').addEventListener('click', function() {
 		 		console.log("bar clicked!");
@@ -451,6 +452,7 @@
 					const scene = document.querySelector('a-scene');
 					scene.appendChild(riceElem);                     //append rice to kitchen
 
+
 					let hudBoardUpdate = document.querySelector('#hudBoard');
         	hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_rice_check.png'});
 
@@ -511,6 +513,23 @@
 		//Recharge sound
 		this.dingSound = document.querySelector('#ding');
 		this.dingSound.components['sound'].playSound();
+
+/* To serve
+		var cleanBoardAvocado = document.querySelector('#relocateAvocado');
+		cleanBoardAvocado.parentNode.removeChild(cleanBoardAvocado);
+
+		var cleanBoardRice = document.querySelector('#relocateRice');
+		cleanBoardRice.parentNode.removeChild(cleanBoardRice);
+
+		var cleanBoardSeaweed = document.querySelector('#relocateSeaweed');
+		cleanBoardSeaweed.parentNode.removeChild(cleanBoardSeaweed);
+
+		var cleanBoardCucumber = document.querySelector('#relocateCucumber');
+		cleanBoardCucumber.parentNode.removeChild(cleanBoardCucumber);
+
+		var cleanBoardSalmon = document.querySelector('#relocateSalmon');
+		cleanBoardSalmon.parentNode.removeChild(cleanBoardSalmon);*/
+
 
 		//Delay creation time to remake it
 		}, random);
