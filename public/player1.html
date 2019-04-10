@@ -69,6 +69,9 @@
 	                        <a-asset-item id="seaweed-obj" src="/assets/models/kitchenEnviro/props/seaweed/seaweed.obj"></a-asset-item>
 	                        <img id="seaweed-mtl" src="/assets/models/kitchenEnviro/props/seaweed/seaweed.png"></img>
 
+													<a-asset-item id="sushi-obj" src="/assets/models/kitchenEnviro/props/sushi/sushi.obj"></a-asset-item>
+													<img id="sushi-mtl" src="/assets/models/kitchenEnviro/HUD/props/sushi/sushi.png"></img>
+
 	                        <a-asset-item id="servebar-obj" src="/assets/models/kitchenEnviro/props/servebar/servebar.obj"></a-asset-item>
 	                        <img id="servebar-mtl" src="/assets/models/kitchenEnviro/texture.png"></img>
 
@@ -489,6 +492,16 @@
 		npc.parentNode.removeChild(npc);
 		console.log('NPC GONE');
 
+		let sushiElem  = document.createElement('a-entity');//create new element seaweed in memory
+		sushiElem.setAttribute('id','sushi');
+		sushiElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/sushi/sushi.obj'});
+		sushiElem.setAttribute('position',{x:-37.787, y:26.851, z:4.028});
+		sushiElem.setAttribute('rotation',{x:0, y:90, z:0});
+		sushiElem.setAttribute('scale',{x:1, y:1, z:1});
+		sushiElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/sushi/sushi.png'});
+
+		const scene2 = document.querySelector('a-scene');
+		scene2.appendChild(sushiElem);                     //append sushi to kitchen
 
 		var min=0;
 		var max=2000;
