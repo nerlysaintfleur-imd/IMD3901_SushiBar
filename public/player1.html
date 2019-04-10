@@ -5,13 +5,12 @@
 	<script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
-	<script src="/js/load-props.js"></script>
+	<!-- <script src="/js/load-props.js"></script> -->
 	<script src="/js/npc-create.js"></script>
-	<script src="/js/timer.js"></script>
-  <script src="/js/raycaster-listen.js"></script>
+	<!-- <script src="/js/timer.js"></script> -->
+  <!--<script src="/js/raycaster-listen.js"></script> -->
   </head>
         <body>
-            <h1></h1>
             <a-scene time shadow="type:basic;" >
                     <a-assets timeout="4000">
 													<!--LOADING KITCHEN-->
@@ -77,42 +76,19 @@
 	                        <img id="servebar-mtl" src="/assets/models/kitchenEnviro/texture.png"></img>
 
 													<!--LOADING NPC-->
-													<a-asset-item id="male2-obj" src="/assets/models/npc/Male1/male1.obj"></a-asset-item>
-													<img id="male2-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
-
-													<!--LOADING HUD-->
-													<a-asset-item id="hudBoard-obj" src="/assets/models/kitchenEnviro/HUD/board.obj"></a-asset-item>
-													<img id="hudBoard-avo-mtl" src="/assets/models/kitchenEnviro/HUD/board_avo.png"></img>
-													<img id="hudBoard-avoCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_avo_check.png"></img>
-													<img id="hudBoard-rice-mtl" src="/assets/models/kitchenEnviro/HUD/board_rice.png"></img>
-													<img id="hudBoard-riceCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_rice_check.png"></img>
-													<img id="hudBoard-cucumber-mtl" src="/assets/models/kitchenEnviro/HUD/board_cuc.png"></img>
-													<img id="hudBoard-cucumberCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_cuc_check.png"></img>
-													<img id="hudBoard-salmon-mtl" src="/assets/models/kitchenEnviro/HUD/board_sal.png"></img>
-													<img id="hudBoard-salmonCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_sal_check.png"></img>
-													<img id="hudBoard-seaweed-mtl" src="/assets/models/kitchenEnviro/HUD/board_sea.png"></img>
-													<img id="hudBoard-seaweedCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_sea_check.png"></img>
-													<img id="hudBoard-serve-mtl" src="/assets/models/kitchenEnviro/HUD/board_serve.png"></img>
-
-
+													<a-asset-item id="male3-obj" src="/assets/models/npc/Male3/male1_stand.obj"></a-asset-item>
+													<img id="male3-mtl" src="/assets/models/npc/Male3/final_texture.png"></img>
 		</a-assets>
                 <!--CAMERA CONTROLS-->
                 <a-entity id="mainCamera" position="0 40 -1"  camera look-controls>
 								<a-entity cursor="fuse:false; fuseTimeout:1000; rayOrigin:mouse"
 												position="0 0 -1">
 								</a-entity>
-								<a-text 	value="Welcome to the Sushi Bar"
-													position="-1.8 0.75 -1"
-													color="black"
-													width="3"
-													anchor="left">
-
-								</a-text>
 								<a-text id="timerTXT"
 										value="TIME LEFT: "
-										position="1 0.75 -1"
+										position="-0.45 0.75 -1"
 										color="black"
-										width="2"
+										width="3"
 										anchor="left">
 
 										<a-text id="timerNUMBERS" position="1.75 0.75 -1" width="6" color="black" text=" "></a-text>
@@ -126,7 +102,7 @@
 
 								<!--SOUND-->
 								<a-entity id="ding" sound="src:#dingCounter-sound;"></a-entity>
-							  <a-entity id="recharge" sound="src:#recharge-sound;"></a-entity>
+							    <a-entity id="recharge" sound="src:#recharge-sound;"></a-entity>
 								<a-entity id="pop" sound="src:#pop-sound;"></a-entity>
 
                 <!--KITCHEN-->
@@ -149,42 +125,317 @@
                 <a-obj-model id="rice" src="#rice-obj" material="src:#rice-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="salmon" src="#salmon-obj" material="src:#salmon-mtl" position="43.559 -0.657 -13.436" rotation="0 100.000 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="seaweed" src="#seaweed-obj" material="src:#seaweed-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model npc-create id="bar" src="#servebar-obj" material="src:#servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model id = "bar" src="#servebar-obj" material="src:#servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
 
                 <!--NPC-->   
-                <a-obj-model id="npc" src="#male2-obj" material="src:#male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <!--HUD--> 
-								<a-obj-model id="hudBoard" src="#hudBoard-obj" material="src:#hudBoard-avo-mtl" position="15.590 32.0 -30.489" rotation="0 0 0" scale="4 4 4" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-					  
+                <a-obj-model id ="npc" src="#male3-obj" material="src:#male3-mtl" position="-51.837 0 0" rotation="0 90 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                
             </a-scene>
 
+ <!-- scripts go to bottom if you want them to execute AFTER the rest of the web page renders -->
+ <script src="/socket.io/socket.io.js"></script>
+ <script>
+		 let socket = io();
 
-            <script src="/socket.io/socket.io.js"></script>
-            <script>
-                let socket = io();
-
-                //default connect event
-                 socket.on('connect', function() {
-					console.log("connected!");
-
-				 });
-
-
-				  document.querySelector('#avocado').addEventListener('click', function() {
-					  console.log("passing through server");
-					socket.emit('moveClickP2');
-
-				});
-
-			socket.on('moveP1', function(data) {
-                //create rgb color string for css
-                let coordinates = 'xyz(' + data.x + ',' + data.y + ',' + data.z + ')';
-                console.log("coordinates recieved: " + coordinates);
+		 //default connect event
+		 socket.on('connect', function() {
+			console.log("connected!");
+		 });
 
 
-			});
+		 //AVOCADO CLICKED
+		 document.querySelector('#avocado').addEventListener('click', function() {
+				 console.log("avocado clicked!");
+				 socket.emit('moveAvacado',{id:"avocado", playerId:socket.id});
+				 Context_AF.popSound = document.querySelector('#pop');
+				 Context_AF.popSound.components['sound'].playSound();
 
-            </script>
+		 });
+
+		 //SEAWEED CLICKED
+		 document.querySelector('#seaweed').addEventListener('click', function() {
+				 console.log("seaweed clicked!");
+				 socket.emit('moveSeaweed',{id:"seaweed", playerId:socket.id});
+			     Context_AF.popSound = document.querySelector('#pop');
+				 Context_AF.popSound.components['sound'].playSound();
+
+		 });
+
+
+		 //CUCUMBER CLICKED
+		 document.querySelector('#cucumber').addEventListener('click', function() {
+				 console.log("cucumber clicked!");
+				 socket.emit('moveCucumber',{id:"cucumber", playerId:socket.id});
+				 Context_AF.popSound = document.querySelector('#pop');
+				 Context_AF.popSound.components['sound'].playSound();
+
+		 });
+
+		 //SALMON CLICKED
+		 document.querySelector('#salmon').addEventListener('click', function() {
+				 console.log("salmon clicked!");
+				 socket.emit('moveSalmon',{id:"salmon", playerId:socket.id});
+			     Context_AF.popSound = document.querySelector('#pop');
+				 Context_AF.popSound.components['sound'].playSound();
+
+		 });
+
+		 //RICE CLICKED
+		 document.querySelector('#rice').addEventListener('click', function() {
+				 console.log("rice clicked!");
+				 socket.emit('moveRice',{id:"rice", playerId:socket.id});
+			     Context_AF.popSound = document.querySelector('#pop');
+				 Context_AF.popSound.components['sound'].playSound();
+
+		 });
+
+
+
+
+		////////////////
+		//MOVE AVACADO//
+		////////////////
+		  
+		 socket.on('relocateAvocado', function(data) {
+			//remove the obj from kitchen parent
+					let avocado = document.querySelector('#avocado');
+					const deleteCard = document.querySelector('#'+data.id);
+				 	deleteCard.parentNode.removeChild(deleteCard);
+					console.log('Avocado object disappeared');
+
+
+							//relocate to the bowl area
+
+							let avocadoElem  = document.createElement('a-entity');//create new element avocado in memory
+							avocadoElem.setAttribute('id','relocateAvocado');
+							avocadoElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/avocado/avocado.obj'});
+							avocadoElem.setAttribute('position',{x:-8.656, y:-0.334, z:-0.125});
+							avocadoElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+							avocadoElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/avocado/avocado.png'});
+
+							const scene = document.querySelector('a-scene');
+							scene.appendChild(avocadoElem);                     //append avodado to kitchen
+
+							//Delay creation time
+										setTimeout(function(){ alert('Avocado Restocked' );
+										let avocadoInventory  = document.createElement('a-entity');//create new element rice in memory
+										avocadoInventory.setAttribute('id','avocado');
+										avocadoInventory.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/avocado/avocado.obj'});
+										avocadoInventory.setAttribute('position',{x:0, y:0, z:0});
+										avocadoInventory.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+										avocadoInventory.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/avocado/avocado.png'});
+										avocadoInventory.setAttribute('load-props',{});
+
+
+										const scene2 = document.querySelector('a-scene');
+										scene2.appendChild(avocadoInventory);                     //append rice to kitchen
+
+										//Recharge sound
+										this.rechargeSound = document.querySelector('#recharge');
+										this.rechargeSound.components['sound'].playSound();
+
+								//Delay creation time to remake it
+							}, 1000);
+						});
+
+		/////////////////
+		//MOVE CUCUMBER//
+		/////////////////
+
+		socket.on('relocateCucumber', function(data) {
+
+					//remove the obj from kitchen parent
+					let cucumber = document.querySelector('#cucumber');
+					cucumber.parentNode.removeChild(cucumber);
+					console.log('Cucumber object disappeared');
+
+
+					//relocate to the cutting board area
+
+					let cucumberElem  = document.createElement('a-entity');//create new element avocado in memory
+					cucumberElem.setAttribute('id','relocateCucumber');
+					cucumberElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/cucumber/cucumber.obj'});
+					cucumberElem.setAttribute('position',{x:-25.731, y:0.082, z:5.153});
+					cucumberElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+					cucumberElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/cucumber/cucumber.png'});
+
+					const scene = document.querySelector('a-scene');
+					scene.appendChild(cucumberElem);                     //append cucumber to kitchen
+
+					//Delay creation time
+						setTimeout(function(){ alert('Cucumber Restocked' );
+						let cucumberInventory  = document.createElement('a-entity');//create new element cucumber in memory
+						cucumberInventory.setAttribute('id','cucumber');
+						cucumberInventory.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/cucumber/cucumber.obj'});
+						cucumberInventory.setAttribute('position',{x:0, y:0, z:0});
+						cucumberInventory.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+						cucumberInventory.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/cucumber/cucumber.png'});
+						cucumberInventory.setAttribute('load-props',{});
+
+
+						const scene2 = document.querySelector('a-scene');
+						scene2.appendChild(cucumberInventory);                     //append cucumber to kitchen
+
+						//Recharge sound
+						this.rechargeSound = document.querySelector('#recharge');
+						this.rechargeSound.components['sound'].playSound();
+
+					//Delay creation time to remake it
+					}, 1000);
+		 });
+
+
+		////////////////
+		//MOVE SEAWEED//
+		////////////////
+
+		socket.on('relocateSeaweed', function(data) {
+
+					//remove the obj from kitchen parent
+					let seaweed = document.querySelector('#seaweed');
+					seaweed.parentNode.removeChild(seaweed);
+					console.log('Seaweed object disappeared');
+
+
+					//relocate to the cutting board area
+
+					let seaweedElem  = document.createElement('a-entity');//create new element avocado in memory
+					seaweedElem.setAttribute('id','relocateSeaweed');
+					seaweedElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/seaweed/seaweed.obj'});
+					seaweedElem.setAttribute('position',{x:13.760, y:0.468, z:-1.655});
+					seaweedElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+					seaweedElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/seaweed/seaweed.png'});
+
+					const scene = document.querySelector('a-scene');
+					scene.appendChild(seaweedElem);                     //append seaweed to kitchen
+
+					//Delay creation time
+						setTimeout(function(){ alert('Seaweed Restocked' );
+						let seaweedInventory  = document.createElement('a-entity');//create new element seaweed in memory
+						seaweedInventory.setAttribute('id','seaweed');
+						seaweedInventory.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/seaweed/seaweed.obj'});
+						seaweedInventory.setAttribute('position',{x:0, y:0, z:0});
+						seaweedInventory.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+						seaweedInventory.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/seaweed/seaweed.png'});
+						seaweedInventory.setAttribute('load-props',{});
+
+
+						const scene2 = document.querySelector('a-scene');
+						scene2.appendChild(seaweedInventory);                     //append seaweed to kitchen
+
+						//Recharge sound
+						this.rechargeSound = document.querySelector('#recharge');
+						this.rechargeSound.components['sound'].playSound();
+
+					//Delay creation time to remake it
+					}, 2000);
+		 });
+
+		
+		///////////////
+		//MOVE SALMON//
+		///////////////
+		
+		 socket.on('relocateSalmon', function(data) {
+					//remove the obj from kitchen parent
+					let salmon = document.querySelector('#salmon');
+					salmon.parentNode.removeChild(salmon);
+					console.log('Salmon object disappeared');
+
+
+					//relocate to the cutting board area
+
+					let salmonElem  = document.createElement('a-entity');//create new element salmon in memory
+					salmonElem.setAttribute('id','relocateSalmon');
+					salmonElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/salmon/salmon.obj'});
+					salmonElem.setAttribute('position',{x:0, y:0, z:0});
+					salmonElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+					salmonElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/salmon/salmon.png'});
+
+					const scene = document.querySelector('a-scene');
+					scene.appendChild(salmonElem);                     //append salmon to kitchen
+
+					//Delay creation time
+						setTimeout(function(){ alert('Salmon Restocked' );
+						let salmonInventory  = document.createElement('a-entity');//create new element seaweed in memory
+						salmonInventory.setAttribute('id','salmon');
+						salmonInventory.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/salmon/salmon.obj'});
+						salmonInventory.setAttribute('position',{x:43.559, y:-0.657, z:-13.436});
+						salmonInventory.setAttribute('rotation',{x:0, y:100.0, z:0});
+						salmonInventory.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+						salmonInventory.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/salmon/salmon.png'});
+						salmonInventory.setAttribute('load-props',{});
+
+
+						const scene2 = document.querySelector('a-scene');
+						scene2.appendChild(salmonInventory);                     //append salmon to kitchen
+
+						//Recharge sound
+						this.rechargeSound = document.querySelector('#recharge');
+						this.rechargeSound.components['sound'].playSound();
+
+					//Delay creation time to remake it
+					}, 5000);
+		 });
+
+
+
+		///////////////
+		//MOVE SALMON//
+		///////////////
+
+
+		socket.on('relocateRice', function(data) {
+
+					//remove the obj from kitchen parent
+					let rice =  document.querySelector('#rice');
+
+					rice.parentNode.removeChild(rice);
+					console.log('Rice object disappeared');
+
+
+					//relocate to the bowl area
+
+					let riceElem  = document.createElement('a-entity');//create new element rice in memory
+					riceElem.setAttribute('id','relocateRice');
+					riceElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/rice/rice.obj'});
+					riceElem.setAttribute('position',{x:-26.953, y:-0.353, z:-20.131});
+					riceElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+					riceElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/rice/rice.png'});
+
+					const scene = document.querySelector('a-scene');
+					scene.appendChild(riceElem);                     //append rice to kitchen
+
+						setTimeout(function(){ alert('Rice Restocked' );
+						let riceInventory  = document.createElement('a-entity');//create new element rice in memory
+						riceInventory.setAttribute('id','rice');
+						riceInventory.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/rice/rice.obj'});
+						riceInventory.setAttribute('position',{x:0, y:0, z:0});
+						riceInventory.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+						riceInventory.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/rice/rice.png'});
+						riceInventory.setAttribute('load-props',{});
+
+
+						const scene2 = document.querySelector('a-scene');
+						scene2.appendChild(riceInventory);                     //append rice to kitchen
+
+						//Recharge sound
+						this.rechargeSound = document.querySelector('#recharge');
+						this.rechargeSound.components['sound'].playSound();
+
+					//Delay creation time to remake it
+				}, 3000);		
+
+		 });
+
+
+
+
+
+
+
+
+ </script>
 		</body>
 	</head>
 </html>
