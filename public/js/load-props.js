@@ -129,6 +129,48 @@ AFRAME.registerComponent('load-props', {
         }, 1000);
 
     },
+    relocateSeaweed : function(){
+
+        //remove the obj from kitchen parent
+        let seaweed = document.querySelector('#seaweed');
+        seaweed.parentNode.removeChild(seaweed);
+        console.log('Seaweed object disappeared');
+
+
+        //relocate to the cutting board area
+
+        let seaweedElem  = document.createElement('a-entity');//create new element avocado in memory
+        seaweedElem.setAttribute('id','relocateSeaweed');
+        seaweedElem.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/seaweed/seaweed.obj'});
+        seaweedElem.setAttribute('position',{x:2, y:2, z:2});
+        seaweedElem.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+        seaweedElem.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/seaweed/seaweed.png'});
+
+        const scene = document.querySelector('a-scene');
+        scene.appendChild(seaweedElem);                     //append seaweed to kitchen
+
+        //Delay creation time
+              setTimeout(function(){ alert('Seaweed Restocked' );
+              let seaweedInventory  = document.createElement('a-entity');//create new element seaweed in memory
+              seaweedInventory.setAttribute('id','seaweed');
+              seaweedInventory.setAttribute('obj-model',{obj:'/assets/models/kitchenEnviro/props/seaweed/seaweed.obj'});
+              seaweedInventory.setAttribute('position',{x:0, y:0, z:0});
+              seaweedInventory.setAttribute('scale',{x:0.5, y:0.5, z:0.5});
+              seaweedInventory.setAttribute('material',{src:'/assets/models/kitchenEnviro/props/seaweed/seaweed.png'});
+              seaweedInventory.setAttribute('load-props',{});
+
+
+              const scene2 = document.querySelector('a-scene');
+              scene2.appendChild(seaweedInventory);                     //append seaweed to kitchen
+
+              //Recharge sound
+              this.rechargeSound = document.querySelector('#recharge');
+              this.rechargeSound.components['sound'].playSound();
+
+          //Delay creation time to remake it
+        }, 2000);
+
+    },
 
     relocateRice : function(){
 
