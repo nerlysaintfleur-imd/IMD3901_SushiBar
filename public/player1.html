@@ -11,7 +11,7 @@
   <script src="/js/raycaster-listen.js"></script>
   </head>
         <body>
-            <h1>Welcome to the Sushi バー(Bar) Environment</h1>
+            <h1></h1>
             <a-scene time shadow="type:basic;" >
                     <a-assets timeout="4000">
 													<!--LOADING KITCHEN-->
@@ -79,17 +79,38 @@
 													<!--LOADING NPC-->
 													<a-asset-item id="male2-obj" src="/assets/models/npc/Male1/male1.obj"></a-asset-item>
 													<img id="male2-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+
+													<!--LOADING HUD-->
+													<a-asset-item id="hudBoard-obj" src="/assets/models/kitchenEnviro/HUD/board.obj"></a-asset-item>
+													<img id="hudBoard-avo-mtl" src="/assets/models/kitchenEnviro/HUD/board_avo.png"></img>
+													<img id="hudBoard-avoCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_avo_check.png"></img>
+													<img id="hudBoard-rice-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+													<img id="hudBoard-riceCheck-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+													<img id="hudBoard-cucumber-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+													<img id="hudBoard-cucumberCheck-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+													<img id="hudBoard-salmon-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+													<img id="hudBoard-salmonCheck-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+													<img id="hudBoard-seaweed-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+													<img id="hudBoard-seaweedCheck-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+
 		</a-assets>
                 <!--CAMERA CONTROLS-->
                 <a-entity id="mainCamera" position="0 40 -1"  camera look-controls>
 								<a-entity cursor="fuse:false; fuseTimeout:1000; rayOrigin:mouse"
 												position="0 0 -1">
 								</a-entity>
+								<a-text 	value="Welcome to the Sushi Bar"
+													position="-1.8 0.75 -1"
+													color="black"
+													width="3"
+													anchor="left">
+
+								</a-text>
 								<a-text id="timerTXT"
 										value="TIME LEFT: "
-										position="-0.45 0.75 -1"
+										position="1 0.75 -1"
 										color="black"
-										width="3"
+										width="2"
 										anchor="left">
 
 										<a-text id="timerNUMBERS" position="1.75 0.75 -1" width="6" color="black" text=" "></a-text>
@@ -129,7 +150,7 @@
                 <a-obj-model npc-create id="bar" src="#servebar-obj" material="src:#servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
 
                 <!--NPC-->   
-                <a-obj-model id="npc" src="#male2-obj" material="src:#male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="1 1 1" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model id="npc" src="#male2-obj" material="src:#male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 
             </a-scene>
 
