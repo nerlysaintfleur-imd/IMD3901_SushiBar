@@ -76,19 +76,43 @@
 	                        <img id="servebar-mtl" src="/assets/models/kitchenEnviro/texture.png"></img>
 
 													<!--LOADING NPC-->
-													<a-asset-item id="male3-obj" src="/assets/models/npc/Male3/male1_stand.obj"></a-asset-item>
-													<img id="male3-mtl" src="/assets/models/npc/Male3/final_texture.png"></img>
-		</a-assets>
+													<a-asset-item id="male2-obj" src="/assets/models/npc/Male1/male1.obj"></a-asset-item>
+													<img id="male2-mtl" src="/assets/models/npc/Male1/final_texture.png"></img>
+
+													<!--HUD-->
+													<a-asset-item id="hudBoard-obj" src="/assets/models/kitchenEnviro/HUD/board.obj"></a-asset-item>
+													<img id="hudBoard-avo-mtl" src="/assets/models/kitchenEnviro/HUD/board_avo.png"></img>
+													<img id="hudBoard-avoCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_avo_check.png"></img>
+													<img id="hudBoard-rice-mtl" src="/assets/models/kitchenEnviro/HUD/board_rice.png"></img>
+													<img id="hudBoard-riceCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_rice_check.png"></img>
+													<img id="hudBoard-cucumber-mtl" src="/assets/models/kitchenEnviro/HUD/board_cuc.png"></img>
+													<img id="hudBoard-cucumberCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_cuc_check.png"></img>
+													<img id="hudBoard-salmon-mtl" src="/assets/models/kitchenEnviro/HUD/board_sal.png"></img>
+													<img id="hudBoard-salmonCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_sal_check.png"></img>
+													<img id="hudBoard-seaweed-mtl" src="/assets/models/kitchenEnviro/HUD/board_sea.png"></img>
+													<img id="hudBoard-seaweedCheck-mtl" src="/assets/models/kitchenEnviro/HUD/board_sea_check.png"></img>
+													<img id="hudBoard-serve-mtl" src="/assets/models/kitchenEnviro/HUD/board_serve.png"></img>
+
+	</a-assets>
                 <!--CAMERA CONTROLS-->
                 <a-entity id="mainCamera" position="0 40 -1"  camera look-controls>
 								<a-entity cursor="fuse:false; fuseTimeout:1000; rayOrigin:mouse"
 												position="0 0 -1">
 								</a-entity>
+								<a-text 	value="Welcome to the Sushi Bar"
+													position="-1.8 0.75 -1"
+													color="black"
+													width="3"
+													anchor="left">
+
+								</a-text>
 								<a-text id="timerTXT"
 										value="TIME LEFT: "
 										position="-0.45 0.75 -1"
+										position="1 0.75 -1"
 										color="black"
 										width="3"
+										width="2"
 										anchor="left">
 
 										<a-text id="timerNUMBERS" position="1.75 0.75 -1" width="6" color="black" text=" "></a-text>
@@ -125,11 +149,13 @@
                 <a-obj-model id="rice" src="#rice-obj" material="src:#rice-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="salmon" src="#salmon-obj" material="src:#salmon-mtl" position="43.559 -0.657 -13.436" rotation="0 100.000 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="seaweed" src="#seaweed-obj" material="src:#seaweed-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model id = "bar" src="#servebar-obj" material="src:#servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model npc-create id = "bar" src="#servebar-obj" material="src:#servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
 
                 <!--NPC-->   
-                <a-obj-model id ="npc" src="#male3-obj" material="src:#male3-mtl" position="-51.837 0 0" rotation="0 90 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                
+								<a-obj-model id="npc" src="#male2-obj" material="src:#male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+								<!--HUD-->
+								<a-obj-model id="hudBoard" src="#hudBoard-obj" material="src:#hudBoard-avo-mtl" position="15.590 32.0 -30.489" rotation="0 0 0" scale="4 4 4" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+
             </a-scene>
 
  <!-- scripts go to bottom if you want them to execute AFTER the rest of the web page renders -->
@@ -195,7 +221,7 @@
 		////////////////
 		//MOVE AVACADO//
 		////////////////
-		  
+
 		 socket.on('relocateAvocado', function(data) {
 			//remove the obj from kitchen parent
 					let avocado = document.querySelector('#avocado');
@@ -216,6 +242,10 @@
 							const scene = document.querySelector('a-scene');
 							scene.appendChild(avocadoElem);                     //append avodado to kitchen
 
+							let hudBoardUpdate = document.querySelector('#hudBoard');
+			 				hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_avo_check.png'});
+
+
 							//Delay creation time
 										setTimeout(function(){ alert('Avocado Restocked' );
 										let avocadoInventory  = document.createElement('a-entity');//create new element rice in memory
@@ -229,6 +259,8 @@
 
 										const scene2 = document.querySelector('a-scene');
 										scene2.appendChild(avocadoInventory);                     //append rice to kitchen
+
+										 hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_rice.png'});
 
 										//Recharge sound
 										this.rechargeSound = document.querySelector('#recharge');
@@ -262,6 +294,9 @@
 					const scene = document.querySelector('a-scene');
 					scene.appendChild(cucumberElem);                     //append cucumber to kitchen
 
+					let hudBoardUpdate = document.querySelector('#hudBoard');
+        	hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_cuc_check.png'});
+
 					//Delay creation time
 						setTimeout(function(){ alert('Cucumber Restocked' );
 						let cucumberInventory  = document.createElement('a-entity');//create new element cucumber in memory
@@ -275,6 +310,8 @@
 
 						const scene2 = document.querySelector('a-scene');
 						scene2.appendChild(cucumberInventory);                     //append cucumber to kitchen
+
+						 hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_sal.png'});
 
 						//Recharge sound
 						this.rechargeSound = document.querySelector('#recharge');
@@ -309,6 +346,10 @@
 					const scene = document.querySelector('a-scene');
 					scene.appendChild(seaweedElem);                     //append seaweed to kitchen
 
+					let hudBoardUpdate = document.querySelector('#hudBoard');
+        	hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_sea_check.png'});
+
+
 					//Delay creation time
 						setTimeout(function(){ alert('Seaweed Restocked' );
 						let seaweedInventory  = document.createElement('a-entity');//create new element seaweed in memory
@@ -323,6 +364,8 @@
 						const scene2 = document.querySelector('a-scene');
 						scene2.appendChild(seaweedInventory);                     //append seaweed to kitchen
 
+						hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_serve.png'});
+
 						//Recharge sound
 						this.rechargeSound = document.querySelector('#recharge');
 						this.rechargeSound.components['sound'].playSound();
@@ -331,11 +374,11 @@
 					}, 2000);
 		 });
 
-		
+
 		///////////////
 		//MOVE SALMON//
 		///////////////
-		
+
 		 socket.on('relocateSalmon', function(data) {
 					//remove the obj from kitchen parent
 					let salmon = document.querySelector('#salmon');
@@ -355,6 +398,9 @@
 					const scene = document.querySelector('a-scene');
 					scene.appendChild(salmonElem);                     //append salmon to kitchen
 
+					let hudBoardUpdate = document.querySelector('#hudBoard');
+        	hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_sal_check.png'});
+
 					//Delay creation time
 						setTimeout(function(){ alert('Salmon Restocked' );
 						let salmonInventory  = document.createElement('a-entity');//create new element seaweed in memory
@@ -369,6 +415,9 @@
 
 						const scene2 = document.querySelector('a-scene');
 						scene2.appendChild(salmonInventory);                     //append salmon to kitchen
+
+						hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_sea.png'});
+
 
 						//Recharge sound
 						this.rechargeSound = document.querySelector('#recharge');
@@ -406,6 +455,9 @@
 					const scene = document.querySelector('a-scene');
 					scene.appendChild(riceElem);                     //append rice to kitchen
 
+					let hudBoardUpdate = document.querySelector('#hudBoard');
+        	hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_rice_check.png'});
+
 						setTimeout(function(){ alert('Rice Restocked' );
 						let riceInventory  = document.createElement('a-entity');//create new element rice in memory
 						riceInventory.setAttribute('id','rice');
@@ -419,12 +471,14 @@
 						const scene2 = document.querySelector('a-scene');
 						scene2.appendChild(riceInventory);                     //append rice to kitchen
 
+						hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_cuc.png'});
+
 						//Recharge sound
 						this.rechargeSound = document.querySelector('#recharge');
 						this.rechargeSound.components['sound'].playSound();
 
 					//Delay creation time to remake it
-				}, 3000);		
+				}, 3000);
 
 		 });
 
