@@ -5,10 +5,7 @@
 	<script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
-	<!-- <script src="/js/load-props.js"></script> -->
 	<script src="/js/npc-create.js"></script>
-	<!-- <script src="/js/timer.js"></script> -->
-  <!--<script src="/js/raycaster-listen.js"></script> -->
   </head>
         <body>
             <a-scene time shadow="type:basic;" >
@@ -99,17 +96,9 @@
 								<a-entity cursor="fuse:false; fuseTimeout:1000; rayOrigin:mouse"
 												position="0 0 -1">
 								</a-entity>
-								<a-text 	value="Welcome to the Sushi Bar"
-													position="-1.8 0.75 -1"
-													color="black"
-													width="3"
-													anchor="left">
-
-								</a-text>
 								<a-text id="timerTXT"
 										value="TIME LEFT: "
-										position="1 0.75 -1"
-										position="1 0.75 -1"
+										position="-0.45 0.75 -1"
 										color="black"
 										width="3"
 										width="2"
@@ -149,7 +138,7 @@
                 <a-obj-model id="rice" src="#rice-obj" material="src:#rice-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="salmon" src="#salmon-obj" material="src:#salmon-mtl" position="43.559 -0.657 -13.436" rotation="0 100.000 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 <a-obj-model id="seaweed" src="#seaweed-obj" material="src:#seaweed-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
-                <a-obj-model npc-create id = "bar" src="#servebar-obj" material="src:#servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model npc-create id="bar" src="#servebar-obj" material="src:#servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
 
                 <!--NPC-->   
 								<a-obj-model id="npc" src="#male2-obj" material="src:#male2-mtl" position="-51.837 0 0" rotation="0 90 0" scale="0.3 0.3 0.3" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
@@ -168,7 +157,14 @@
 			console.log("connected!");
 		 });
 
+		 //Customer CLICKED
+		 document.querySelector('#bar').addEventListener('click', function() {
+		 		console.log("bar clicked!");
+		 		socket.emit('createNPC',{id:"bar", playerId:socket.id});
+		 		this.popSound = document.querySelector('#pop');
+		 		this.popSound.components['sound'].playSound();
 
+		 });
 		 //AVOCADO CLICKED
 		 document.querySelector('#avocado').addEventListener('click', function() {
 				 console.log("avocado clicked!");
@@ -482,9 +478,40 @@
 
 		 });
 
+	socket.on('newCustomer', function(data) {
+		let npc = document.querySelector('#npc');
+		npc.parentNode.removeChild(npc);
+		console.log('NPC GONE');
 
 
+		var min=0;
+		var max=2000;
+		var random = Math.random() * (+max - +min) + +min;
 
+		setTimeout(function(){ alert('New Customer' );
+		let npcInventory  = document.createElement('a-entity');//create new element seaweed in memory
+		npcInventory.setAttribute('id','npc');
+		npcInventory.setAttribute('obj-model',{obj:'/assets/models/npc/Male1/male1.obj'});
+		npcInventory.setAttribute('position',{x:-51.837, y:0, z:0});
+		npcInventory.setAttribute('rotation',{x:0, y:90.0, z:0});
+		npcInventory.setAttribute('scale',{x:0.3, y:0.3, z:0.3});
+		npcInventory.setAttribute('material',{src:'/assets/models/npc/Male1/final_texture.png'});
+		npcInventory.setAttribute('npc-create',{});
+
+		const scene = document.querySelector('a-scene');
+		scene.appendChild(npcInventory);                     //append seaweed to kitchen
+
+		let hudBoardUpdate = document.querySelector('#hudBoard');
+		hudBoardUpdate.setAttribute('material',{src:'/assets/models/kitchenEnviro/HUD/board_avo.png'});
+
+		//Recharge sound
+		this.dingSound = document.querySelector('#ding');
+		this.dingSound.components['sound'].playSound();
+
+		//Delay creation time to remake it
+		}, random);
+
+		 });
 
 
 
