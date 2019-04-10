@@ -78,7 +78,7 @@
 
 													<!--LOADING NPC-->
 													<a-asset-item id="male3-obj" src="/assets/models/npc/Male3/male1_stand.obj"></a-asset-item>
-													<a-asset-item id="male3-mtl" src="/assets/models/npc/Male3/final_texture.png"></a-asset-item>
+													<img id="male3-mtl" src="/assets/models/npc/Male3/final_texture.png"></img>
 		</a-assets>
                 <!--CAMERA CONTROLS-->
                 <a-entity id="mainCamera" position="0 40 -1"  camera look-controls>
@@ -129,7 +129,7 @@
                 <a-obj-model id = "bar" src="#servebar-obj" material="src:#servebar-mtl" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
 
                 <!--NPC-->   
-                <a-obj-model id ="npc" src="#male3-obj" material="src:#male3-mtl" position="-51.837 0 0" rotation="0 90 0" scale="2.937 2.937 2.937" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
+                <a-obj-model id ="npc" src="#male3-obj" material="src:#male3-mtl" position="-51.837 0 0" rotation="0 90 0" scale="0.5 0.5 0.5" shadow="cast:false; receive:false;" spherical-env-map="src:#skymap;"></a-obj-model>
                 
             </a-scene>
 
