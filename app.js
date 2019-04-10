@@ -32,7 +32,22 @@ socketIO.on('connection', function(socket) {
             }
         }
     });
+    socket.on('createNPC', function(data) {
+        //EMPTY WRONG SOCKET IDS FROM ARRAY
+        socket.on('socketName', function(data) {
+            var i;
+            for (i = 0; i < playerIds.length; i++) {
+                if (data.menuId == playerIds[i] ){
+                    playerIds.pop(data.menuId);
+                }
+            }
+            console.log(playerIds);
+        });
+        //relocate Avocado
+        socketIO.sockets.emit('newCustomer', data);
 
+
+    });
     socket.on('moveAvacado', function(data) {
         //EMPTY WRONG SOCKET IDS FROM ARRAY
         socket.on('socketName', function(data) {
