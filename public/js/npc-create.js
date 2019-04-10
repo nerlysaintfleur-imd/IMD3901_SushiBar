@@ -9,11 +9,9 @@ AFRAME.registerComponent('npc-create', {
         document.querySelector('#bar').addEventListener('click', function() {
             console.log('click');
             Context_AF.deleteNPC();
+            Context_AF.createNPC();
+
         })
-
-  
-
-
     },
 
     deleteNPC : function(){
@@ -26,10 +24,7 @@ AFRAME.registerComponent('npc-create', {
     createNPC : function(){
         let npc = document.querySelector('#npc');
         npc.parentNode.removeChild(npc);
+        npc.setAttribute('visible', false);
 
     },
-
-   
-   
-
 });
