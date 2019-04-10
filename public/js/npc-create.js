@@ -9,7 +9,6 @@ AFRAME.registerComponent('npc-create', {
         document.querySelector('#bar').addEventListener('click', function() {
             console.log('click');
             Context_AF.deleteNPC();
-            Context_AF.createNPC();
 
         })
     },
